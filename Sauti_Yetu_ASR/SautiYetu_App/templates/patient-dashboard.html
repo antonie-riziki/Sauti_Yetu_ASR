@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patient Dashboard – AI Speech Therapy</title>
+  <meta name="description" content="Overview of sessions, progress, and recommendations for patients." />
+  <link rel="canonical" href="/patient-dashboard.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+<header class="header" role="banner">
+  <div class="container bar">
+    <a href="/index.html" class="logo" aria-label="AI Speech Therapy Home">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span>AI Speech Therapy</span>
+    </a>
+    <nav class="header-actions" aria-label="Global actions">
+      <div class="accessibility" aria-label="Accessibility toggles">
+        <label class="switch"><input type="checkbox" id="toggle-contrast" aria-label="High contrast" /> High contrast</label>
+        <label class="switch"><input type="checkbox" id="toggle-text" aria-label="Larger text" /> Large text</label>
+        <label class="switch"><input type="checkbox" id="toggle-motion" aria-label="Reduce motion" /> Reduce motion</label>
+      </div>
+      <a href="/session.html" class="btn btn-primary">Start Session</a>
+      <div class="avatar" aria-hidden="true"></div>
+    </nav>
+  </div>
+</header>
+
+<div class="container layout">
+  <aside class="sidebar" aria-label="Patient navigation">
+    <h2>Patient</h2>
+    <nav>
+      <a href="/patient-dashboard.html" aria-current="page">Dashboard</a>
+      <a href="/patient-sessions.html">My Sessions</a>
+      <a href="/nearby.html">Nearby Therapists</a>
+      <a href="/community.html">Community</a>
+      <a href="/session.html">Live Session</a>
+    </nav>
+  </aside>
+
+  <main role="main">
+    <section class="cards">
+      <article class="card" style="grid-column: span 3;">
+        <h3>Sessions Taken</h3>
+        <p><strong>12</strong> completed</p>
+      </article>
+      <article class="card" style="grid-column: span 3;">
+        <h3>Recommended</h3>
+        <p>3 new articulation drills</p>
+      </article>
+      <article class="card" style="grid-column: span 3;">
+        <h3>Progress</h3>
+        <p>Steady improvement the last 2 weeks</p>
+      </article>
+      <article class="card" style="grid-column: span 3;">
+        <h3>Articulation Score</h3>
+        <p><strong>78</strong>/100</p>
+      </article>
+    </section>
+
+    <section class="grid-2">
+      <article class="card">
+        <h3>ASR Analytics</h3>
+        <div class="placeholder" role="img" aria-label="ASR analytics placeholder chart">ASR chart</div>
+      </article>
+      <article class="card">
+        <h3>Recent Sessions</h3>
+        <ul>
+          <li>2025-11-01 – Articulation Drills – Score 76</li>
+          <li>2025-10-28 – Reading Practice – Score 74</li>
+          <li>2025-10-24 – Conversation – Score 72</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="card">
+      <h3>Recommended Next Session</h3>
+      <p>30-minute articulation and pacing exercises curated for you.</p>
+      <a class="btn btn-primary" href="/session.html" aria-label="Start recommended session">Start now</a>
+    </section>
+  </main>
+</div>
+
+<nav class="bottom-nav" aria-label="Mobile navigation">
+  <a href="/patient-dashboard.html" aria-current="page">Dashboard</a>
+  <a href="/patient-sessions.html">Sessions</a>
+  <a href="/nearby.html">Nearby</a>
+  <a href="/community.html">Community</a>
+</nav>
+
+<script>
+(function(){
+  const root = document.documentElement;
+  const qs = id => document.getElementById(id);
+  const apply = () => {
+    const pref = JSON.parse(localStorage.getItem('a11y')||'{}');
+    if (pref.contrast) root.setAttribute('data-contrast','high'); else root.removeAttribute('data-contrast');
+    if (pref.text) root.setAttribute('data-text','large'); else root.removeAttribute('data-text');
+    if (pref.motion) root.classList.add('reduce-motion'); else root.classList.remove('reduce-motion');
+    if (qs('toggle-contrast')) qs('toggle-contrast').checked = !!pref.contrast;
+    if (qs('toggle-text')) qs('toggle-text').checked = !!pref.text;
+    if (qs('toggle-motion')) qs('toggle-motion').checked = !!pref.motion;
+  };
+  const save = (k,v) => { const p = JSON.parse(localStorage.getItem('a11y')||'{}'); p[k]=v; localStorage.setItem('a11y', JSON.stringify(p)); apply(); };
+  ['toggle-contrast','toggle-text','toggle-motion'].forEach(id=>{
+    const el = qs(id); if (el) el.addEventListener('change',()=>{
+      save(id==='toggle-contrast'?'contrast':id==='toggle-text'?'text':'motion', el.checked);
+    });
+  });
+  apply();
+})();
+</script>
+</body>
+</html>

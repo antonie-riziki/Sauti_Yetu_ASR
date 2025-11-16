@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nearby Therapists – AI Speech Therapy</title>
+  <meta name="description" content="Find nearby therapists with language and specialty filters." />
+  <link rel="canonical" href="/nearby.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+<header class="header" role="banner">
+  <div class="container bar">
+    <a href="/index.html" class="logo" aria-label="AI Speech Therapy Home">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span>AI Speech Therapy</span>
+    </a>
+    <nav class="header-actions" aria-label="Global actions">
+      <div class="accessibility" aria-label="Accessibility toggles">
+        <label class="switch"><input type="checkbox" id="toggle-contrast" aria-label="High contrast" /> High contrast</label>
+        <label class="switch"><input type="checkbox" id="toggle-text" aria-label="Larger text" /> Large text</label>
+        <label class="switch"><input type="checkbox" id="toggle-motion" aria-label="Reduce motion" /> Reduce motion</label>
+      </div>
+      <div class="avatar" aria-hidden="true"></div>
+    </nav>
+  </div>
+</header>
+
+<div class="container layout">
+  <aside class="sidebar" aria-label="Patient navigation">
+    <h2>Patient</h2>
+    <nav>
+      <a href="/patient-dashboard.html">Dashboard</a>
+      <a href="/patient-sessions.html">My Sessions</a>
+      <a href="/nearby.html" aria-current="page">Nearby Therapists</a>
+      <a href="/community.html">Community</a>
+      <a href="/session.html">Live Session</a>
+    </nav>
+  </aside>
+
+  <main role="main">
+    <section class="card">
+      <h1>Nearby Therapists</h1>
+      <div class="grid-3">
+        <div>
+          <label class="label" for="q">Search</label>
+          <input id="q" class="input" placeholder="Name, clinic, city" />
+        </div>
+        <div>
+          <label class="label" for="lang">Language</label>
+          <select id="lang" class="select">
+            <option>Any</option>
+            <option>English</option>
+            <option>Spanish</option>
+            <option>Arabic</option>
+          </select>
+        </div>
+        <div>
+          <label class="label" for="spec">Specialty</label>
+          <select id="spec" class="select">
+            <option>Any</option>
+            <option>Articulation</option>
+            <option>Fluency</option>
+            <option>Voice</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid-3">
+      <article class="card">
+        <div class="grid-2" style="align-items:center;">
+          <div class="avatar" aria-hidden="true" style="width:48px;height:48px;"></div>
+          <div>
+            <h3>Dr. Sarah Lee</h3>
+            <p>Articulation • 1.2 km away</p>
+          </div>
+        </div>
+        <div style="margin-top:12px; display:flex; gap:8px;">
+          <a class="btn btn-primary" href="#">Book</a>
+          <a class="btn btn-outline" href="#">Profile</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="grid-2" style="align-items:center;">
+          <div class="avatar" aria-hidden="true" style="width:48px;height:48px;"></div>
+          <div>
+            <h3>Jamal Ortega</h3>
+            <p>Fluency • 2.5 km away</p>
+          </div>
+        </div>
+        <div style="margin-top:12px; display:flex; gap:8px;">
+          <a class="btn btn-primary" href="#">Book</a>
+          <a class="btn btn-outline" href="#">Profile</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="grid-2" style="align-items:center;">
+          <div class="avatar" aria-hidden="true" style="width:48px;height:48px;"></div>
+          <div>
+            <h3>Amelia Wong</h3>
+            <p>Voice • 3.1 km away</p>
+          </div>
+        </div>
+        <div style="margin-top:12px; display:flex; gap:8px;">
+          <a class="btn btn-primary" href="#">Book</a>
+          <a class="btn btn-outline" href="#">Profile</a>
+        </div>
+      </article>
+    </section>
+  </main>
+</div>
+
+<nav class="bottom-nav" aria-label="Mobile navigation">
+  <a href="/patient-dashboard.html">Dashboard</a>
+  <a href="/patient-sessions.html">Sessions</a>
+  <a href="/nearby.html" aria-current="page">Nearby</a>
+  <a href="/community.html">Community</a>
+</nav>
+
+<script>
+(function(){
+  const root = document.documentElement;
+  const qs = id => document.getElementById(id);
+  const apply = () => {
+    const pref = JSON.parse(localStorage.getItem('a11y')||'{}');
+    if (pref.contrast) root.setAttribute('data-contrast','high'); else root.removeAttribute('data-contrast');
+    if (pref.text) root.setAttribute('data-text','large'); else root.removeAttribute('data-text');
+    if (pref.motion) root.classList.add('reduce-motion'); else root.classList.remove('reduce-motion');
+    if (qs('toggle-contrast')) qs('toggle-contrast').checked = !!pref.contrast;
+    if (qs('toggle-text')) qs('toggle-text').checked = !!pref.text;
+    if (qs('toggle-motion')) qs('toggle-motion').checked = !!pref.motion;
+  };
+  const save = (k,v) => { const p = JSON.parse(localStorage.getItem('a11y')||'{}'); p[k]=v; localStorage.setItem('a11y', JSON.stringify(p)); apply(); };
+  ['toggle-contrast','toggle-text','toggle-motion'].forEach(id=>{
+    const el = qs(id); if (el) el.addEventListener('change',()=>{
+      save(id==='toggle-contrast'?'contrast':id==='toggle-text'?'text':'motion', el.checked);
+    });
+  });
+  apply();
+})();
+</script>
+</body>
+</html>
