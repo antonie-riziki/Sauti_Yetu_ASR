@@ -1,3 +1,7 @@
+
+{% load static %}
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,12 +13,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
   <body>
     <header class="header" role="banner">
       <div class="container bar">
-        <a href="/index.html" class="logo" aria-label="AI Speech Therapy Home">
+        <a href="/" class="logo" aria-label="AI Speech Therapy Home">
           <span class="logo-mark" aria-hidden="true"></span>
           <span>AI Speech Therapy</span>
         </a>
@@ -24,7 +28,7 @@
             <label class="switch"><input type="checkbox" id="toggle-text" aria-label="Larger text" /> Large text</label>
             <label class="switch"><input type="checkbox" id="toggle-motion" aria-label="Reduce motion" /> Reduce motion</label>
           </div>
-          <a href="/signin.html" class="btn btn-outline">Sign In</a>
+          <a href="/signin" class="btn btn-outline">Sign In</a>
           <div class="avatar" aria-hidden="true"></div>
         </nav>
       </div>
@@ -34,9 +38,9 @@
       <aside class="sidebar" aria-label="Primary">
         <h2>Navigation</h2>
         <nav>
-          <a href="/index.html">Home</a>
-          <a href="/signin.html">Sign In</a>
-          <a href="/signup.html" aria-current="page">Sign Up</a>
+          <a href="/">Home</a>
+          <a href="/signin">Sign In</a>
+          <a href="/signup" aria-current="page">Sign Up</a>
         </nav>
       </aside>
 
@@ -65,7 +69,7 @@
               </div>
               <div>
                 <button type="submit" class="btn btn-primary">Create account</button>
-                <a href="/signin.html" class="btn btn-ghost" style="margin-left: 8px;">Already have an account? Sign In</a>
+                <a href="/signin" class="btn btn-ghost" style="margin-left: 8px;">Already have an account? Sign In</a>
               </div>
               <p id="signup-help" class="text-muted">Mockup only – no backend connected.</p>
             </div>
@@ -75,9 +79,9 @@
     </div>
 
     <nav class="bottom-nav" aria-label="Mobile navigation">
-      <a href="/index.html">Home</a>
-      <a href="/signin.html">Sign In</a>
-      <a href="/signup.html" aria-current="page">Sign Up</a>
+      <a href="/index">Home</a>
+      <a href="/signin">Sign In</a>
+      <a href="/signup" aria-current="page">Sign Up</a>
     </nav>
 
     <script>

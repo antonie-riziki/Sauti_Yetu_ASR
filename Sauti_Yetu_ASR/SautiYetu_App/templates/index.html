@@ -1,111 +1,263 @@
+<!DOCTYPE html>
 
-{% load static %}
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>AI Speech Therapy – Empowered Communication</title>
-    <meta name="description" content="Warm, accessible AI-powered speech therapy for patients and therapists." />
-    <link rel="canonical" href="/index.html" />
-
-    <meta property="og:title" content="AI Speech Therapy" />
-    <meta property="og:description" content="Accessible AI-powered speech therapy platform." />
-    <meta property="og:type" content="website" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-  </head>
-  <body>
-    <header class="header" role="banner">
-      <div class="container bar">
-        <a href="/index.html" class="logo" aria-label="AI Speech Therapy Home">
-          <span class="logo-mark" aria-hidden="true"></span>
-          <span>AI Speech Therapy</span>
-        </a>
-        <nav class="header-actions" aria-label="Global actions">
-          <div class="accessibility" aria-label="Accessibility toggles">
-            <label class="switch"><input type="checkbox" id="toggle-contrast" aria-label="High contrast" /> High contrast</label>
-            <label class="switch"><input type="checkbox" id="toggle-text" aria-label="Larger text" /> Large text</label>
-            <label class="switch"><input type="checkbox" id="toggle-motion" aria-label="Reduce motion" /> Reduce motion</label>
-          </div>
-          <a href="/signin.html" class="btn btn-outline">Sign In</a>
-          <a href="/signup.html" class="btn btn-primary">Sign Up</a>
-          <div class="avatar" aria-hidden="true"></div>
-        </nav>
-      </div>
-    </header>
-
-    <main role="main" class="container" style="margin-top: 24px;">
-      <section class="hero" aria-labelledby="home-title">
-        <h1 id="home-title">Warm, accessible AI speech therapy for everyone</h1>
-        <p>Built for neurodivergent-friendly comfort: high contrast, larger text, and reduced motion options included.</p>
-        <div style="display:flex; gap: 12px; flex-wrap: wrap;">
-          <a href="/signup.html" class="btn btn-primary" aria-label="Create an account">Get started</a>
-          <a href="/signin.html" class="btn btn-outline" aria-label="Sign in to your account">Sign in</a>
-        </div>
-      </section>
-
-      <section class="layout container" style="margin-top: 24px;">
-        <aside class="sidebar" aria-label="Quick links">
-          <h2>Explore</h2>
-          <nav>
-            <a href="/patient-dashboard.html">Patient Dashboard</a>
-            <a href="/therapist-dashboard.html">Therapist Dashboard</a>
-            <a href="/session.html">Live Session</a>
-          </nav>
-        </aside>
-        <div style="display:flex; flex-direction:column; gap: 16px;">
-          <section class="cards">
-            <article class="card" style="grid-column: span 4;">
-              <h3>Neurodivergent-friendly</h3>
-              <p>High contrast, larger text, and reduced motion built-in.</p>
-            </article>
-            <article class="card" style="grid-column: span 4;">
-              <h3>Patient & Therapist Roles</h3>
-              <p>Tailored dashboards and tools for each role.</p>
-            </article>
-            <article class="card" style="grid-column: span 4;">
-              <h3>Live Session</h3>
-              <p>Video placeholders, transcription, and analytics tabs.</p>
-            </article>
-          </section>
-        </div>
-      </section>
-    </main>
-
-    <nav class="bottom-nav" aria-label="Mobile navigation">
-      <a href="/index.html" aria-current="page">Home</a>
-      <a href="/signin.html">Sign In</a>
-      <a href="/signup.html">Sign Up</a>
-    </nav>
-
-    <script>
-      (function(){
-        const root = document.documentElement;
-        const qs = id => document.getElementById(id);
-        const apply = () => {
-          const pref = JSON.parse(localStorage.getItem('a11y')||'{}');
-          if (pref.contrast) root.setAttribute('data-contrast','high'); else root.removeAttribute('data-contrast');
-          if (pref.text) root.setAttribute('data-text','large'); else root.removeAttribute('data-text');
-          if (pref.motion) root.classList.add('reduce-motion'); else root.classList.remove('reduce-motion');
-          if (qs('toggle-contrast')) qs('toggle-contrast').checked = !!pref.contrast;
-          if (qs('toggle-text')) qs('toggle-text').checked = !!pref.text;
-          if (qs('toggle-motion')) qs('toggle-motion').checked = !!pref.motion;
-        };
-        const save = (k,v) => { const p = JSON.parse(localStorage.getItem('a11y')||'{}'); p[k]=v; localStorage.setItem('a11y', JSON.stringify(p)); apply(); };
-        ['toggle-contrast','toggle-text','toggle-motion'].forEach(id=>{
-          const el = qs(id); if (el) el.addEventListener('change',()=>{
-            save(id==='toggle-contrast'?'contrast':id==='toggle-text'?'text':'motion', el.checked);
-          });
-        });
-        apply();
-      })();
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AuraSpeak - AI-Powered Speech Therapy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#0ea4a4",
+              "background-light": "#f8fafc",
+              "background-dark": "#111827",
+              "text-light": "#1f2937",
+              "text-dark": "#e5e7eb",
+              "card-light": "#ffffff",
+              "card-dark": "#1f2937",
+              "border-light": "#e5e7eb",
+              "border-dark": "#374151",
+            },
+            fontFamily: {
+              "display": ["Lexend", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.5rem",
+              "lg": "0.75rem",
+              "xl": "1rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
     </script>
-  </body>
-</html>
-
+<style>
+      body {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+      .sr-only:focus {
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<a class="sr-only bg-primary text-white p-4 text-center" href="#main-content">Skip to main content</a>
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+<div class="flex items-center p-4 justify-between max-w-7xl mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">record_voice_over</span>
+<h2 class="text-text-light dark:text-text-dark text-xl font-bold leading-tight tracking-[-0.015em]">AuraSpeak</h2>
+</div>
+<div class="flex items-center justify-end gap-2">
+<button aria-label="Toggle high contrast mode" class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-transparent text-text-light dark:text-text-dark min-w-0 p-0">
+<span class="material-symbols-outlined">contrast</span>
+</button>
+<button aria-label="Toggle neurodiversity mode" class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-transparent text-text-light dark:text-text-dark min-w-0 p-0">
+<span class="material-symbols-outlined">psychology</span>
+</button>
+<button aria-label="Sign in" class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-transparent text-text-light dark:text-text-dark min-w-0 p-0">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<main id="main-content">
+<!-- HeroSection -->
+<div class="relative @container overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-purple-500/10 dark:from-primary/20 dark:to-purple-500/20"></div>
+<div class="relative p-4">
+<div class="flex min-h-[480px] flex-col gap-6 items-center justify-center text-center p-4 @[480px]:gap-8">
+<div class="flex flex-col gap-4">
+<h1 class="text-text-light dark:text-text-dark text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl">
+                    Find Your Voice with AI-Powered Speech Therapy
+                </h1>
+<h2 class="text-text-light dark:text-text-dark/80 text-lg font-normal leading-normal @[480px]:text-xl max-w-2xl mx-auto">
+                    Personalized exercises and instant feedback to help you communicate with confidence.
+                </h2>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-gradient-to-r from-[#0ea5a4] to-[#7c3aed] text-white text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
+<span class="truncate">Get Started for Free</span>
+</button>
+</div>
+</div>
+</div>
+<!-- FeatureSection -->
+<div class="flex flex-col gap-10 px-4 py-16 @container sm:px-6 lg:px-8">
+<div class="flex flex-col gap-4 text-center max-w-3xl mx-auto">
+<h2 class="text-text-light dark:text-text-dark tracking-light text-3xl font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
+                Why Choose AuraSpeak?
+            </h2>
+<p class="text-text-light dark:text-text-dark/80 text-lg font-normal leading-normal">
+                Our app is designed to provide you with the tools you need to succeed, right at your fingertips.
+            </p>
+</div>
+<div class="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6 p-0 max-w-7xl mx-auto">
+<div class="flex flex-1 gap-4 rounded-lg border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6 flex-col">
+<div class="flex items-center justify-center h-12 w-12 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-3xl">model_training</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-text-light dark:text-text-dark text-xl font-bold leading-tight">Personalized AI Feedback</h3>
+<p class="text-text-light dark:text-text-dark/80 text-base font-normal leading-normal">Receive instant, actionable insights on your speech patterns from our advanced AI.</p>
+</div>
+</div>
+<div class="flex flex-1 gap-4 rounded-lg border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6 flex-col">
+<div class="flex items-center justify-center h-12 w-12 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-3xl">devices</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-text-light dark:text-text-dark text-xl font-bold leading-tight">Practice Anytime, Anywhere</h3>
+<p class="text-text-light dark:text-text-dark/80 text-base font-normal leading-normal">Fit therapy into your schedule with exercises available on any device, 24/7.</p>
+</div>
+</div>
+<div class="flex flex-1 gap-4 rounded-lg border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-6 flex-col">
+<div class="flex items-center justify-center h-12 w-12 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-3xl">trending_up</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-text-light dark:text-text-dark text-xl font-bold leading-tight">Track Your Progress</h3>
+<p class="text-text-light dark:text-text-dark/80 text-base font-normal leading-normal">Visually monitor your improvements over time with detailed analytics and reports.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- SectionHeader & Timeline -->
+<div class="px-4 py-16 sm:px-6 lg:px-8 bg-background-light dark:bg-background-dark/50">
+<div class="max-w-2xl mx-auto">
+<h2 class="text-text-light dark:text-text-dark text-3xl font-bold leading-tight tracking-[-0.015em] pb-8 text-center">How It Works</h2>
+<div class="grid grid-cols-[auto_1fr] gap-x-4">
+<div class="flex flex-col items-center gap-2 pt-1">
+<div class="flex items-center justify-center h-10 w-10 rounded-full border-2 border-primary bg-primary/10 text-primary">
+<span class="material-symbols-outlined">person_add</span>
+</div>
+<div class="w-[2px] bg-border-light dark:bg-border-dark grow rounded-full"></div>
+</div>
+<div class="flex flex-1 flex-col pb-12 pt-1">
+<p class="text-base text-primary font-bold leading-normal">Step 1</p>
+<p class="text-text-light dark:text-text-dark text-lg font-medium leading-normal">Sign Up &amp; Set Goals</p>
+<p class="text-text-light dark:text-text-dark/80">Create your account and tell us what you want to achieve. This helps us tailor your program.</p>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-[2px] bg-border-light dark:bg-border-dark h-2 rounded-full"></div>
+<div class="flex items-center justify-center h-10 w-10 rounded-full border-2 border-primary bg-primary/10 text-primary">
+<span class="material-symbols-outlined">mic</span>
+</div>
+<div class="w-[2px] bg-border-light dark:bg-border-dark grow rounded-full"></div>
+</div>
+<div class="flex flex-1 flex-col pb-12 pt-1">
+<p class="text-base text-primary font-bold leading-normal">Step 2</p>
+<p class="text-text-light dark:text-text-dark text-lg font-medium leading-normal">Complete AI-Guided Exercises</p>
+<p class="text-text-light dark:text-text-dark/80">Follow along with engaging exercises designed to target your specific speech goals.</p>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-[2px] bg-border-light dark:bg-border-dark h-2 rounded-full"></div>
+<div class="flex items-center justify-center h-10 w-10 rounded-full border-2 border-primary bg-primary/10 text-primary">
+<span class="material-symbols-outlined">bar_chart</span>
+</div>
+</div>
+<div class="flex flex-1 flex-col pb-3 pt-1">
+<p class="text-base text-primary font-bold leading-normal">Step 3</p>
+<p class="text-text-light dark:text-text-dark text-lg font-medium leading-normal">Receive Instant Feedback &amp; Improve</p>
+<p class="text-text-light dark:text-text-dark/80">Get real-time analysis and track your improvement to stay motivated on your journey.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Testimonial Section -->
+<div class="px-4 py-16 sm:px-6 lg:px-8">
+<div class="max-w-3xl mx-auto text-center">
+<h2 class="text-text-light dark:text-text-dark text-3xl font-bold leading-tight tracking-[-0.015em] pb-4">What Our Users Say</h2>
+<div class="p-8 rounded-lg bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark">
+<p class="text-text-light dark:text-text-dark/90 text-xl italic">"AuraSpeak has been a game-changer for my confidence. The instant feedback is something I could never get on my own. I feel more prepared for every conversation."</p>
+<div class="mt-6 flex items-center justify-center gap-4">
+<img class="h-14 w-14 rounded-full object-cover" data-alt="A portrait of a smiling woman." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgyETl4MBvtQtTS_I6OHTqnAEMCy3I7oaCIfglCcDNKFoHSqp74SgUFedY041sE_1-ZU89o0Nx6yJ8HUFL19nZvQnlgG90aVoOC6b4Z1LNbkadn281XUNgRXQAWsY_5Mzfa6lxDZTdkm_oxMTXXFKdHfz1jtF4YsEOAGZdXH9Bw-5SCKwQngFgsWEQxZ623ysiHmfzsozusKrIYrtEUx_jcLWuKx_-sFGEULeEuRKVNq-ArkKnAUsZETKkDphjcyeVgsFbl2kkpg"/>
+<div>
+<p class="font-bold text-text-light dark:text-text-dark">Sarah J.</p>
+<p class="text-sm text-text-light/70 dark:text-text-dark/70">Early Adopter</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-background-light dark:bg-background-dark border-t border-border-light dark:border-border-dark mt-auto">
+<div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col items-center gap-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">record_voice_over</span>
+<h2 class="text-text-light dark:text-text-dark text-xl font-bold">AuraSpeak</h2>
+</div>
+<div class="flex justify-center space-x-6">
+<a class="text-text-light/80 dark:text-text-dark/80 hover:text-primary" href="#">Privacy Policy</a>
+<a class="text-text-light/80 dark:text-text-dark/80 hover:text-primary" href="#">Terms of Service</a>
+<a class="text-text-light/80 dark:text-text-dark/80 hover:text-primary" href="#">Contact</a>
+</div>
+<p class="text-center text-base text-text-light/70 dark:text-text-dark/70">© 2024 AuraSpeak. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</div>
+<!-- Sign-up / Sign-in Modal Example (hidden by default) -->
+<!--
+    <div id="auth-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" hidden>
+        <div class="w-full max-w-md rounded-lg bg-card-light dark:bg-card-dark p-8 shadow-xl">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-text-light dark:text-text-dark">Create Account</h3>
+                <button class="text-text-light/70 dark:text-text-dark/70 hover:text-primary" aria-label="Close modal">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <form class="space-y-6">
+                <div>
+                    <label for="email" class="block text-sm font-medium text-text-light dark:text-text-dark">Email address</label>
+                    <input type="email" id="email" class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark shadow-sm focus:border-primary focus:ring-primary">
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-text-light dark:text-text-dark">Password</label>
+                    <input type="password" id="password" class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark shadow-sm focus:border-primary focus:ring-primary">
+                </div>
+                <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-gradient-to-r from-[#0ea5a4] to-[#7c3aed] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                    Create Account
+                </button>
+                <p class="text-center text-sm text-text-light/80 dark:text-text-dark/80">
+                    Already have an account? <a href="#" class="font-medium text-primary hover:underline">Sign in</a>
+                </p>
+            </form>
+        </div>
+    </div>
+    -->
+</body></html>

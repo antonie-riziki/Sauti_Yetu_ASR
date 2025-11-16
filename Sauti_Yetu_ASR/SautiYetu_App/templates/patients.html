@@ -1,120 +1,306 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Patients – AI Speech Therapy (Therapist)</title>
-  <meta name="description" content="Manage your patients and view key details." />
-  <link rel="canonical" href="/patients.html" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/styles.css" />
-</head>
-<body>
-<header class="header" role="banner">
-  <div class="container bar">
-    <a href="/index.html" class="logo" aria-label="AI Speech Therapy Home">
-      <span class="logo-mark" aria-hidden="true"></span>
-      <span>AI Speech Therapy</span>
-    </a>
-    <nav class="header-actions" aria-label="Global actions">
-      <div class="accessibility" aria-label="Accessibility toggles">
-        <label class="switch"><input type="checkbox" id="toggle-contrast" aria-label="High contrast" /> High contrast</label>
-        <label class="switch"><input type="checkbox" id="toggle-text" aria-label="Larger text" /> Large text</label>
-        <label class="switch"><input type="checkbox" id="toggle-motion" aria-label="Reduce motion" /> Reduce motion</label>
-      </div>
-      <div class="avatar" aria-hidden="true"></div>
-    </nav>
-  </div>
-</header>
+<!DOCTYPE html>
 
-<div class="container layout">
-  <aside class="sidebar" aria-label="Therapist navigation">
-    <h2>Therapist</h2>
-    <nav>
-      <a href="/therapist-dashboard.html">Dashboard</a>
-      <a href="/patients.html" aria-current="page">Patients</a>
-      <a href="/therapist-sessions.html">Sessions</a>
-      <a href="/therapist-session.html">Live Session</a>
-    </nav>
-  </aside>
-
-  <main role="main">
-    <section class="grid-3">
-      <article class="card">
-        <div class="grid-2" style="align-items:center;">
-          <div class="avatar" aria-hidden="true" style="width:48px;height:48px;"></div>
-          <div>
-            <h3>Amani</h3>
-            <p>Last session: 2025-11-01 • Score 76</p>
-          </div>
-        </div>
-        <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
-          <a class="btn btn-primary" href="/therapist-session.html">Start Call</a>
-          <a class="btn btn-outline" href="/therapist-sessions.html">View Sessions</a>
-          <a class="btn btn-outline" href="#">View Report</a>
-        </div>
-      </article>
-      <article class="card">
-        <div class="grid-2" style="align-items:center;">
-          <div class="avatar" aria-hidden="true" style="width:48px;height:48px;"></div>
-          <div>
-            <h3>Sarah</h3>
-            <p>Last session: 2025-10-28 • Score 74</p>
-          </div>
-        </div>
-        <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
-          <a class="btn btn-primary" href="/therapist-session.html">Start Call</a>
-          <a class="btn btn-outline" href="/therapist-sessions.html">View Sessions</a>
-          <a class="btn btn-outline" href="#">View Report</a>
-        </div>
-      </article>
-      <article class="card">
-        <div class="grid-2" style="align-items:center;">
-          <div class="avatar" aria-hidden="true" style="width:48px;height:48px;"></div>
-          <div>
-            <h3>Lina</h3>
-            <p>Last session: 2025-10-24 • Score 72</p>
-          </div>
-        </div>
-        <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
-          <a class="btn btn-primary" href="/therapist-session.html">Start Call</a>
-          <a class="btn btn-outline" href="/therapist-sessions.html">View Sessions</a>
-          <a class="btn btn-outline" href="#">View Report</a>
-        </div>
-      </article>
-    </section>
-  </main>
-</div>
-
-<nav class="bottom-nav" aria-label="Mobile navigation">
-  <a href="/therapist-dashboard.html">Dashboard</a>
-  <a href="/patients.html" aria-current="page">Patients</a>
-  <a href="/therapist-sessions.html">Sessions</a>
-</nav>
-
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Patients - Speech Therapy Web App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 <script>
-(function(){
-  const root = document.documentElement;
-  const qs = id => document.getElementById(id);
-  const apply = () => {
-    const pref = JSON.parse(localStorage.getItem('a11y')||'{}');
-    if (pref.contrast) root.setAttribute('data-contrast','high'); else root.removeAttribute('data-contrast');
-    if (pref.text) root.setAttribute('data-text','large'); else root.removeAttribute('data-text');
-    if (pref.motion) root.classList.add('reduce-motion'); else root.classList.remove('reduce-motion');
-    if (qs('toggle-contrast')) qs('toggle-contrast').checked = !!pref.contrast;
-    if (qs('toggle-text')) qs('toggle-text').checked = !!pref.text;
-    if (qs('toggle-motion')) qs('toggle-motion').checked = !!pref.motion;
-  };
-  const save = (k,v) => { const p = JSON.parse(localStorage.getItem('a11y')||'{}'); p[k]=v; localStorage.setItem('a11y', JSON.stringify(p)); apply(); };
-  ['toggle-contrast','toggle-text','toggle-motion'].forEach(id=>{
-    const el = qs(id); if (el) el.addEventListener('change',()=>{
-      save(id==='toggle-contrast'?'contrast':id==='toggle-text'?'text':'motion', el.checked);
-    });
-  });
-  apply();
-})();
-</script>
-</body>
-</html>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0ea4a4",
+            "background-light": "#f6f8f8",
+            "background-dark": "#102222",
+            "surface-light": "#ffffff",
+            "surface-dark": "#1a2c2c",
+            "text-light-primary": "#0d1b1b",
+            "text-dark-primary": "#e0e5e5",
+            "text-light-secondary": "#4c9a9a",
+            "text-dark-secondary": "#80baba",
+            "border-light": "#e7f3f3",
+            "border-dark": "#2c3e3e",
+          },
+          fontFamily: {
+            "display": ["Lexend", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "0.75rem",
+            "xl": "1rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+
+    .material-symbols-outlined.fill {
+      font-variation-settings:
+        'FILL' 1
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light-primary dark:text-dark-primary">
+<div class="relative flex min-h-screen">
+<!-- Desktop Sidebar -->
+<aside class="hidden w-64 flex-col gap-4 border-r border-border-light bg-surface-light p-4 dark:border-border-dark dark:bg-surface-dark lg:flex">
+<div class="flex items-center gap-2 px-2 pb-2 pt-4">
+<span class="material-symbols-outlined text-primary text-3xl">record_voice_over</span>
+<p class="text-xl font-bold">ClarityAI</p>
+</div>
+<ul class="flex flex-col gap-2">
+<li>
+<a class="flex h-12 items-center gap-4 rounded-lg px-4 hover:bg-primary/10" href="#">
+<span class="material-symbols-outlined text-text-light-secondary dark:text-dark-secondary">dashboard</span>
+<p class="text-base font-medium">Dashboard</p>
+</a>
+</li>
+<li>
+<a class="flex h-12 items-center gap-4 rounded-lg bg-primary/10 px-4" href="#">
+<span class="material-symbols-outlined fill text-primary">groups</span>
+<p class="text-base font-bold text-primary">Patients</p>
+</a>
+</li>
+<li>
+<a class="flex h-12 items-center gap-4 rounded-lg px-4 hover:bg-primary/10" href="#">
+<span class="material-symbols-outlined text-text-light-secondary dark:text-dark-secondary">event</span>
+<p class="text-base font-medium">Sessions</p>
+</a>
+</li>
+<li>
+<a class="flex h-12 items-center gap-4 rounded-lg px-4 hover:bg-primary/10" href="#">
+<span class="material-symbols-outlined text-text-light-secondary dark:text-dark-secondary">analytics</span>
+<p class="text-base font-medium">Analytics</p>
+</a>
+</li>
+<li>
+<a class="flex h-12 items-center gap-4 rounded-lg px-4 hover:bg-primary/10" href="#">
+<span class="material-symbols-outlined text-text-light-secondary dark:text-dark-secondary">near_me</span>
+<p class="text-base font-medium">Nearby</p>
+</a>
+</li>
+</ul>
+<ul class="mt-auto flex flex-col gap-2">
+<li>
+<a class="flex h-12 items-center gap-4 rounded-lg px-4 hover:bg-primary/10" href="#">
+<span class="material-symbols-outlined text-text-light-secondary dark:text-dark-secondary">settings</span>
+<p class="text-base font-medium">Settings</p>
+</a>
+</li>
+<li>
+<a class="flex h-12 items-center gap-4 rounded-lg px-4 hover:bg-primary/10" href="#">
+<span class="material-symbols-outlined text-text-light-secondary dark:text-dark-secondary">logout</span>
+<p class="text-base font-medium">Logout</p>
+</a>
+</li>
+</ul>
+</aside>
+<!-- Main Content -->
+<main class="flex-1">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-10 flex h-16 items-center justify-between border-b border-border-light bg-background-light/80 p-4 backdrop-blur-sm dark:border-border-dark dark:bg-background-dark/80">
+<div class="flex items-center gap-2">
+<button class="flex size-10 items-center justify-center rounded-full lg:hidden">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+<h1 class="text-xl font-bold">My Patients</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-primary/10">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+</button>
+<div class="size-10 rounded-full bg-cover bg-center" data-alt="Therapist's profile picture" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB8J0sGuUcagYAk8WWrfOFuavRna3jNRem9xl7d1MhADXhl-qwGTXfNxAXk0qPqJY5RYaNSJ5_IFvkAV74dYHCqRk0-9YXeeZLTfeKp4o_fVjwh5rAL9Da_OVPVXLHYRSkuercnblKOnMKbjJRw6VXoYEJ_djrtEJriqTW-8Cdu-kYEerR4LpyrOmCqGiGFCslNzquELRwaEdBb10b7lWJrLBoGD425zAmpMLu0UQC2zvHy8CN2PkUN7e-BLD7-Qvy4AxLbN91a-g')"></div>
+</div>
+</header>
+<!-- Filters -->
+<div class="p-4">
+<div class="flex flex-col gap-4 md:flex-row md:items-center">
+<div class="flex-1">
+<label class="flex h-12 w-full min-w-40 flex-col">
+<div class="flex h-full w-full flex-1 items-stretch rounded-lg">
+<div class="flex items-center justify-center rounded-l-lg border border-r-0 border-border-light bg-surface-light pl-4 text-text-light-secondary dark:border-border-dark dark:bg-surface-dark dark:text-dark-secondary">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input h-full w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg border border-l-0 border-border-light bg-surface-light px-4 text-base font-normal leading-normal text-text-light-primary placeholder:text-text-light-secondary focus:border-primary focus:outline-0 focus:ring-0 dark:border-border-dark dark:bg-surface-dark dark:text-dark-primary dark:placeholder:text-dark-secondary" placeholder="Search patients..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-lg border border-border-light bg-surface-light px-4 dark:border-border-dark dark:bg-surface-dark">
+<span class="material-symbols-outlined text-xl text-text-light-secondary dark:text-dark-secondary">sort</span>
+<p class="text-sm font-medium">Sort by Score</p>
+<span class="material-symbols-outlined text-xl text-text-light-secondary dark:text-dark-secondary">expand_more</span>
+</button>
+</div>
+</div>
+<div class="mt-4 flex gap-3 overflow-x-auto pb-2">
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary/20 pl-4 pr-4">
+<p class="text-sm font-medium text-primary">English</p>
+</button>
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full border border-border-light bg-surface-light pl-4 pr-4 dark:border-border-dark dark:bg-surface-dark">
+<p class="text-sm font-medium">Spanish</p>
+</button>
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full border border-border-light bg-surface-light pl-4 pr-4 dark:border-border-dark dark:bg-surface-dark">
+<p class="text-sm font-medium">Mandarin</p>
+</button>
+</div>
+</div>
+<!-- Patient Grid -->
+<div class="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4 p-4">
+<!-- Patient Card 1 -->
+<div class="flex flex-col gap-4 rounded-xl border border-border-light bg-surface-light p-4 dark:border-border-dark dark:bg-surface-dark">
+<div class="flex items-center gap-4">
+<div class="size-16 shrink-0 rounded-full bg-cover bg-center" data-alt="Avatar of Liam Johnson" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBf-gvq_loaeulXus5HhCgb23jS9Z8bgpDkig88iQJZakGELpUns8t_exsBU5YlvhtUxSVF6vfQQ_Ss9pJR3YSlbJsG3sQ0z5WBrXcM75WsisX1ILQ0KC8o5heshFpshPytfsrQ4rQg7rXFypevBFFpzdPbaMek_b-_Wzp09NYvv5yK7NNxb--e2ZRLr-0QollA9X48wVD_brUHGFJ2R2fNSMIMUKRyoVzFUivLFh1k81Ip7HJUwqprIWYttwTVqN6VgL_19NO7YA");'></div>
+<div class="flex-1">
+<p class="text-lg font-bold">Liam Johnson</p>
+<p class="text-sm text-text-light-secondary dark:text-dark-secondary">Last session: Oct 26, 2023</p>
+</div>
+<div class="flex h-7 items-center justify-center rounded-full bg-primary/20 px-3">
+<p class="text-sm font-medium text-primary">Score: 85%</p>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<button class="flex h-10 items-center justify-center gap-2 rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined text-xl">video_call</span>
+<span class="text-sm font-bold">Call</span>
+</button>
+<button class="flex h-10 items-center justify-center gap-2 rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-xl">event_note</span>
+<span class="text-sm font-bold">Sessions</span>
+</button>
+<button class="flex h-10 items-center justify-center gap-2 rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-xl">assessment</span>
+<span class="text-sm font-bold">Report</span>
+</button>
+</div>
+</div>
+<!-- Patient Card 2 -->
+<div class="flex flex-col gap-4 rounded-xl border border-border-light bg-surface-light p-4 dark:border-border-dark dark:bg-surface-dark">
+<div class="flex items-center gap-4">
+<div class="size-16 shrink-0 rounded-full bg-cover bg-center" data-alt="Avatar of Olivia Chen" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCJ6_5OccVPg07b5NfjHh7CUItZVJ4ORawWRdMc2SmoJK94uRfoeBgXXqc0UzCCec_0NLUU9b88bRcFcf8mPS91PkcsHUaudVZtDL4m9slo7-vh7Y7XfU7ApYjM8YolBy4AlPkuB-9G2FbAZRptE0-6HxAfTd2ci_Hx8dq04iHeKTuh_SJCilY7aiIWRJX7OjAUa6sM0CoLQK3Rxmk7CHn8sgEPurk_Jfwbes7z-MtxitbqgDGYLsoiv72OcBFjsJJSmKJPFyfKDg");'></div>
+<div class="flex-1">
+<p class="text-lg font-bold">Olivia Chen</p>
+<p class="text-sm text-text-light-secondary dark:text-dark-secondary">Last session: Oct 25, 2023</p>
+</div>
+<div class="flex h-7 items-center justify-center rounded-full bg-primary/20 px-3">
+<p class="text-sm font-medium text-primary">Score: 92%</p>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<button class="flex h-10 items-center justify-center gap-2 rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined text-xl">video_call</span>
+<span class="text-sm font-bold">Call</span>
+</button>
+<button class="flex h-10 items-center justify-center gap-2 rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-xl">event_note</span>
+<span class="text-sm font-bold">Sessions</span>
+</button>
+<button class="flex h-10 items-center justify-center gap-2 rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-xl">assessment</span>
+<span class="text-sm font-bold">Report</span>
+</button>
+</div>
+</div>
+<!-- Patient Card 3 -->
+<div class="flex flex-col gap-4 rounded-xl border border-border-light bg-surface-light p-4 dark:border-border-dark dark:bg-surface-dark">
+<div class="flex items-center gap-4">
+<div class="size-16 shrink-0 rounded-full bg-cover bg-center" data-alt="Avatar of Noah Garcia" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCUNqg7Y4dhj8aqCJ5XabX48nRzLwp01qHPXn10PbslVc2ex3Px7BTgPeVP5RFCt-lW_QgpNsu8zRM_uQeZvTTF41FvdiFfhU0NPDlbI29_8JGg1DWqvQiINtbxLDHzFNj891CwXzs6tyJd7SXIXL2zkicDmsBZk0KIKX3WhNqABVnT-vuq7lFuHKlz7cvGhepPlpRYycdGPdtPiDuf_f7k3FODdWo6oXzR6fVBx--uRV0zh9NmmgPJKLvBFn8rT2OSlF5j4Cuuzw");'></div>
+<div class="flex-1">
+<p class="text-lg font-bold">Noah Garcia</p>
+<p class="text-sm text-text-light-secondary dark:text-dark-secondary">Last session: Oct 24, 2023</p>
+</div>
+<div class="flex h-7 items-center justify-center rounded-full bg-primary/20 px-3">
+<p class="text-sm font-medium text-primary">Score: 78%</p>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<button class="flex h-10 items-center justify-center gap-2 rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined text-xl">video_call</span>
+<span class="text-sm font-bold">Call</span>
+</button>
+<button class="flex h-10 items-center justify-center gap-2 rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-xl">event_note</span>
+<span class="text-sm font-bold">Sessions</span>
+</button>
+<button class="flex h-10 items-center justify-center gap-2 rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-xl">assessment</span>
+<span class="text-sm font-bold">Report</span>
+</button>
+</div>
+</div>
+<!-- Patient Card 4 -->
+<div class="flex flex-col gap-4 rounded-xl border border-border-light bg-surface-light p-4 dark:border-border-dark dark:bg-surface-dark">
+<div class="flex items-center gap-4">
+<div class="size-16 shrink-0 rounded-full bg-cover bg-center" data-alt="Avatar of Emma Wilson" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB4pUithUfs5FsmZ-8Ce4Gn6K1y0BHV_GTZnSbgXVWZqntaa-_wGfFpk9NoVnvGeyw80NiM3p4Foi5eslJBCPxrHHVg70Oc0FapOWIyom-RaZ2yt63wDIY1wxTjPP_z2W8mOfb_4eLxFP7QuMtxKAjQG6YMk9IZ4jSRgIJN7igsQLuHvqJ0aDOI3Ur2L9bm76MfzFELVsR7_5qJVKeG1TLFxb0mmUEqZUIGr7hn-Mi4nAmIw6W9BDMdszthJhlMJcpqavYwMTVfrA");'></div>
+<div class="flex-1">
+<p class="text-lg font-bold">Emma Wilson</p>
+<p class="text-sm text-text-light-secondary dark:text-dark-secondary">Last session: Oct 22, 2023</p>
+</div>
+<div class="flex h-7 items-center justify-center rounded-full bg-primary/20 px-3">
+<p class="text-sm font-medium text-primary">Score: 88%</p>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<button class="flex h-10 items-center justify-center gap-2 rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined text-xl">video_call</span>
+<span class="text-sm font-bold">Call</span>
+</button>
+<button class="flex h-10 items-center justify-center gap-2 rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-xl">event_note</span>
+<span class="text-sm font-bold">Sessions</span>
+</button>
+<button class="flex h-10 items-center justify-center gap-2 rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-xl">assessment</span>
+<span class="text-sm font-bold">Report</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Mobile Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 z-10 border-t border-border-light bg-surface-light p-2 dark:border-border-dark dark:bg-surface-dark lg:hidden">
+<div class="grid grid-cols-5">
+<a class="flex flex-col items-center justify-center gap-1 rounded-lg py-1 hover:bg-primary/10" href="#">
+<span class="material-symbols-outlined text-text-light-secondary dark:text-dark-secondary">dashboard</span>
+<p class="text-xs font-medium text-text-light-secondary dark:text-dark-secondary">Dashboard</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 rounded-lg bg-primary/10 py-1" href="#">
+<span class="material-symbols-outlined fill text-primary">groups</span>
+<p class="text-xs font-bold text-primary">Patients</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 rounded-lg py-1 hover:bg-primary/10" href="#">
+<span class="material-symbols-outlined text-text-light-secondary dark:text-dark-secondary">event</span>
+<p class="text-xs font-medium text-text-light-secondary dark:text-dark-secondary">Sessions</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 rounded-lg py-1 hover:bg-primary/10" href="#">
+<span class="material-symbols-outlined text-text-light-secondary dark:text-dark-secondary">analytics</span>
+<p class="text-xs font-medium text-text-light-secondary dark:text-dark-secondary">Analytics</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 rounded-lg py-1 hover:bg-primary/10" href="#">
+<span class="material-symbols-outlined text-text-light-secondary dark:text-dark-secondary">settings</span>
+<p class="text-xs font-medium text-text-light-secondary dark:text-dark-secondary">Settings</p>
+</a>
+</div>
+</nav>
+</body></html>

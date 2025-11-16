@@ -1,3 +1,6 @@
+
+{% load static %}
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,12 +12,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 </head>
 <body>
 <header class="header" role="banner">
   <div class="container bar">
-    <a href="/index.html" class="logo" aria-label="AI Speech Therapy Home">
+    <a href="/" class="logo" aria-label="AI Speech Therapy Home">
       <span class="logo-mark" aria-hidden="true"></span>
       <span>AI Speech Therapy</span>
     </a>
@@ -33,11 +36,11 @@
   <aside class="sidebar" aria-label="Patient navigation">
     <h2>Patient</h2>
     <nav>
-      <a href="/patient-dashboard.html">Dashboard</a>
-      <a href="/patient-sessions.html">My Sessions</a>
-      <a href="/nearby.html">Nearby Therapists</a>
-      <a href="/community.html" aria-current="page">Community</a>
-      <a href="/session.html">Live Session</a>
+      <a href="/patient-dashboard">Dashboard</a>
+      <a href="/patient-sessions">My Sessions</a>
+      <a href="/nearby">Nearby Therapists</a>
+      <a href="/community" aria-current="page">Community</a>
+      <a href="/session">Live Session</a>
     </nav>
   </aside>
 
@@ -77,10 +80,10 @@
 </div>
 
 <nav class="bottom-nav" aria-label="Mobile navigation">
-  <a href="/patient-dashboard.html">Dashboard</a>
-  <a href="/patient-sessions.html">Sessions</a>
-  <a href="/nearby.html">Nearby</a>
-  <a href="/community.html" aria-current="page">Community</a>
+  <a href="/patient-dashboard">Dashboard</a>
+  <a href="/patient-sessions">Sessions</a>
+  <a href="/nearby">Nearby</a>
+  <a href="/community" aria-current="page">Community</a>
 </nav>
 
 <script>
