@@ -3,7 +3,7 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Therapist Dashboard</title>
+<title>Sauti Yetu</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -15,20 +15,21 @@
       theme: {
         extend: {
           colors: {
-            "primary": "#0ea4a4",
-            "background-light": "#f6f8f8",
-            "background-dark": "#102222",
-            "primary-gradient-start": "#4FD1C5",
-            "primary-gradient-end": "#63B3ED",
-            "text-light": "#2D3748",
-            "text-dark": "#E2E8F0",
-            "text-secondary-light": "#A0AEC0",
-            "text-secondary-dark": "#718096",
-            "card-light": "#FFFFFF",
-            "card-dark": "#1A2E2E",
-            "border-light": "#E2E8F0",
-            "border-dark": "#2D3748"
-          },
+              "primary": "#0ea4a4",
+              "primary-gradient-start": "#4FD1C5",
+              "primary-gradient-end": "#63B3ED",
+              "background-light": "#f8f9fa",
+              "background-dark": "#102222",
+              "text-light": "#343a40",
+              "text-dark": "#e9ecef",
+              "card-light": "#ffffff",
+              "card-dark": "#1A2E2E",
+              "border-light": "#e9ecef",
+              "border-dark": "#344a4a",
+              "subtle-text-light": "#6c757d",
+              "subtle-text-dark": "#adb5bd"
+            },
+          
           fontFamily: {
             "display": ["Lexend", "sans-serif"]
           },
@@ -61,30 +62,33 @@
 <div class="relative flex min-h-screen w-full">
 <!-- Desktop Sidebar -->
 <aside class="hidden w-64 shrink-0 flex-col gap-4 border-r border-border-light bg-card-light p-4 dark:border-border-dark dark:bg-card-dark lg:flex">
-<div class="flex h-12 items-center px-4 pb-2 pt-4">
-<h1 class="text-2xl font-bold tracking-tight text-primary">AuraSpeech</h1>
+<div class="flex items-center gap-2 px-2 pb-4">
+<div class="bg-gradient-to-br from-[#6DD5FA] to-[#2980B9] size-8 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg">record_voice_over</span>
+</div>
+<h1 class="text-2xl font-bold tracking-tight text-primary">Sauti Yetu</h1>
 </div>
 <ul class="flex flex-1 flex-col gap-2">
-<li class="flex h-12 cursor-pointer items-center gap-4 rounded-lg bg-primary/10 px-4 dark:bg-primary/20">
+<a class="flex h-12 cursor-pointer items-center gap-4 rounded-lg bg-primary/10 px-4 dark:bg-primary/20" href="/therapist-dashboard">
 <span class="material-symbols-outlined text-primary">dashboard</span>
 <p class="font-bold text-primary">Dashboard</p>
-</li>
-<li class="flex h-12 cursor-pointer items-center gap-4 rounded-lg px-4 hover:bg-primary/10 dark:hover:bg-primary/20">
+</a>
+<a class="flex h-12 cursor-pointer items-center gap-4 rounded-lg px-4 hover:bg-primary/10 dark:hover:bg-primary/20" href="/therapist-patients">
 <span class="material-symbols-outlined">groups</span>
 <p class="font-semibold text-text-light dark:text-text-dark">Patients</p>
-</li>
-<li class="flex h-12 cursor-pointer items-center gap-4 rounded-lg px-4 hover:bg-primary/10 dark:hover:bg-primary/20">
+</a>
+<a class="flex h-12 cursor-pointer items-center gap-4 rounded-lg px-4 hover:bg-primary/10 dark:hover:bg-primary/20" href="/therapist-sessions">
 <span class="material-symbols-outlined">event_note</span>
 <p class="font-semibold text-text-light dark:text-text-dark">Sessions</p>
-</li>
-<li class="flex h-12 cursor-pointer items-center gap-4 rounded-lg px-4 hover:bg-primary/10 dark:hover:bg-primary/20">
+</a>
+<a class="flex h-12 cursor-pointer items-center gap-4 rounded-lg px-4 hover:bg-primary/10 dark:hover:bg-primary/20" href="/therapist-analytics">
 <span class="material-symbols-outlined">analytics</span>
 <p class="font-semibold text-text-light dark:text-text-dark">Analytics</p>
-</li>
-<li class="flex h-12 cursor-pointer items-center gap-4 rounded-lg px-4 hover:bg-primary/10 dark:hover:bg-primary/20">
+</a>
+<!-- <li class="flex h-12 cursor-pointer items-center gap-4 rounded-lg px-4 hover:bg-primary/10 dark:hover:bg-primary/20">
 <span class="material-symbols-outlined">near_me</span>
 <p class="font-semibold text-text-light dark:text-text-dark">Nearby</p>
-</li>
+</li> -->
 </ul>
 <ul class="flex flex-col gap-2">
 <li class="flex h-12 cursor-pointer items-center gap-4 rounded-lg px-4 hover:bg-primary/10 dark:hover:bg-primary/20">
@@ -97,6 +101,8 @@
 </li>
 </ul>
 </aside>
+
+
 <!-- Main Content -->
 <main class="flex w-full flex-1 flex-col">
 <!-- Top App Bar -->

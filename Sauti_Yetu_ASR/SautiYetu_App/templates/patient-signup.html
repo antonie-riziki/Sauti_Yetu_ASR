@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create Your Account - AI Speech Therapy</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0ea4a4",
+            "background-light": "#f6f8f8",
+            "background-dark": "#102222",
+          },
+          fontFamily: {
+            "display": ["Lexend", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-[#1f2937] dark:text-gray-200">
+<div class="relative flex min-h-screen w-full flex-col items-center justify-center overflow-x-hidden p-4">
+<div aria-hidden="true" class="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-primary/20 to-transparent dark:from-primary/30"></div>
+<main class="relative z-10 mx-auto w-full max-w-md rounded-xl bg-background-light dark:bg-background-dark/80 backdrop-blur-sm p-6 md:p-8">
+<div class="flex flex-col items-center">
+<div class="mb-6 flex items-center justify-center">
+<div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 text-primary dark:bg-primary/30">
+<span class="material-symbols-outlined !text-3xl">record_voice_over</span>
+</div>
+</div>
+<h1 class="text-2xl font-bold tracking-tight text-[#111827] dark:text-white md:text-3xl">Create Your Account</h1>
+<p class="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">Welcome! Please enter your details to get started.</p>
+</div>
+<form class="mt-8 space-y-4">
+<div class="flex flex-col">
+<label class="mb-2 text-sm font-medium text-gray-700 dark:text-gray-300" for="full-name">Full Name</label>
+<input class="form-input w-full rounded-lg border-gray-300 bg-gray-50/50 p-3 text-sm text-gray-900 placeholder-gray-400 shadow-sm focus:border-primary focus:ring-2 focus:ring-primary/50 dark:border-gray-600 dark:bg-gray-700/50 dark:text-white dark:placeholder-gray-500 dark:focus:border-primary" id="full-name" name="full-name" placeholder="Enter your full name" required="" type="text"/>
+</div>
+<div class="flex flex-col">
+<label class="mb-2 text-sm font-medium text-gray-700 dark:text-gray-300" for="dob">Date of Birth</label>
+<input class="form-input w-full rounded-lg border-gray-300 bg-gray-50/50 p-3 text-sm text-gray-900 placeholder-gray-400 shadow-sm focus:border-primary focus:ring-2 focus:ring-primary/50 dark:border-gray-600 dark:bg-gray-700/50 dark:text-white dark:placeholder-gray-500 dark:focus:border-primary" id="dob" name="dob" required="" type="date"/>
+</div>
+<div class="flex flex-col">
+<label class="mb-2 text-sm font-medium text-gray-700 dark:text-gray-300" for="address">Residential Address</label>
+<textarea class="form-textarea w-full rounded-lg border-gray-300 bg-gray-50/50 p-3 text-sm text-gray-900 placeholder-gray-400 shadow-sm focus:border-primary focus:ring-2 focus:ring-primary/50 dark:border-gray-600 dark:bg-gray-700/50 dark:text-white dark:placeholder-gray-500 dark:focus:border-primary" id="address" name="address" placeholder="Enter your full address" required="" rows="3"></textarea>
+</div>
+<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+<div class="flex flex-col">
+<label class="mb-2 flex items-center text-sm font-medium text-gray-700 dark:text-gray-300" for="phone">Phone Number <span class="ml-1 text-xs text-gray-500 dark:text-gray-400">(Optional)</span></label>
+<input class="form-input w-full rounded-lg border-gray-300 bg-gray-50/50 p-3 text-sm text-gray-900 placeholder-gray-400 shadow-sm focus:border-primary focus:ring-2 focus:ring-primary/50 dark:border-gray-600 dark:bg-gray-700/50 dark:text-white dark:placeholder-gray-500 dark:focus:border-primary" id="phone" name="phone" placeholder="e.g., (123) 456-7890" type="tel"/>
+</div>
+<div class="flex flex-col">
+<label class="mb-2 flex items-center text-sm font-medium text-gray-700 dark:text-gray-300" for="gender">Gender <span class="ml-1 text-xs text-gray-500 dark:text-gray-400">(Optional)</span></label>
+<select class="form-select w-full rounded-lg border-gray-300 bg-gray-50/50 p-3 text-sm text-gray-900 shadow-sm focus:border-primary focus:ring-2 focus:ring-primary/50 dark:border-gray-600 dark:bg-gray-700/50 dark:text-white dark:focus:border-primary" id="gender" name="gender">
+<option value="">Select gender</option>
+<option value="female">Female</option>
+<option value="male">Male</option>
+<option value="prefer-not-to-say">Prefer not to say</option>
+</select>
+</div>
+</div>
+<div class="flex flex-col">
+<label class="mb-2 text-sm font-medium text-gray-700 dark:text-gray-300" for="condition">Neurodivergent Condition</label>
+<select class="form-select w-full rounded-lg border-gray-300 bg-gray-50/50 p-3 text-sm text-gray-900 shadow-sm focus:border-primary focus:ring-2 focus:ring-primary/50 dark:border-gray-600 dark:bg-gray-700/50 dark:text-white dark:focus:border-primary" id="condition" name="condition" required="">
+<option value="">Select a condition</option>
+<option value="aphasia">Aphasia</option>
+<option value="downsyndrome">Down Syndrome</option>
+<option value="stroke">Stroke</option>
+<option value="cp">Cerebral Palsy (CP)</option>
+<option value="intellectual-disability">Intellectual Disability</option>
+<option value="apraxia">Apraxia of Speech</option>
+<option value="tbi">Traumatic Brain Injury (TBI)</option>
+<option value="asd">Autism Spectrum Disorder (ASD)</option>
+<option value="adhd">Attention-Deficit/Hyperactivity Disorder (ADHD)</option>
+<option value="dld">Development Language Disorder (DLD)</option>
+<option value="dyslexia">Dyslexia</option>
+<option value="dyscalculia">Dyscalculia</option>
+<option value="tourette">Tourette Syndrome</option>
+<option value="parkinsons">Parkinson's</option>
+<option value="other">Other</option>
+<option value="none">None / Not Applicable</option>
+</select>
+</div>
+<div class="flex flex-col">
+<label class="mb-2 text-sm font-medium text-gray-700 dark:text-gray-300" for="email">Email</label>
+<input class="form-input w-full rounded-lg border-gray-300 bg-gray-50/50 p-3 text-sm text-gray-900 placeholder-gray-400 shadow-sm focus:border-primary focus:ring-2 focus:ring-primary/50 dark:border-gray-600 dark:bg-gray-700/50 dark:text-white dark:placeholder-gray-500 dark:focus:border-primary" id="email" name="email" placeholder="Enter your email address" required="" type="email"/>
+</div>
+<div class="flex flex-col">
+<label class="mb-2 text-sm font-medium text-gray-700 dark:text-gray-300" for="password">Create Password</label>
+<div class="relative">
+<input class="form-input w-full rounded-lg border-gray-300 bg-gray-50/50 p-3 pr-10 text-sm text-gray-900 placeholder-gray-400 shadow-sm focus:border-primary focus:ring-2 focus:ring-primary/50 dark:border-gray-600 dark:bg-gray-700/50 dark:text-white dark:placeholder-gray-500 dark:focus:border-primary" id="password" name="password" placeholder="Enter your password" required="" type="password"/>
+<button aria-label="Toggle password visibility" class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200" type="button">
+<span class="material-symbols-outlined !text-xl">visibility</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col">
+<label class="mb-2 text-sm font-medium text-gray-700 dark:text-gray-300" for="confirm-password">Confirm Password</label>
+<div class="relative">
+<input class="form-input w-full rounded-lg border-gray-300 bg-gray-50/50 p-3 pr-10 text-sm text-gray-900 placeholder-gray-400 shadow-sm focus:border-primary focus:ring-2 focus:ring-primary/50 dark:border-gray-600 dark:bg-gray-700/50 dark:text-white dark:placeholder-gray-500 dark:focus:border-primary" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required="" type="password"/>
+<button aria-label="Toggle password visibility" class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200" type="button">
+<span class="material-symbols-outlined !text-xl">visibility</span>
+</button>
+</div>
+</div>
+<div class="flex items-center pt-2">
+<input class="form-checkbox h-4 w-4 rounded border-gray-300 bg-gray-100 text-primary focus:ring-2 focus:ring-primary/50 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800" id="terms" name="terms" required="" type="checkbox"/>
+<label class="ml-2 block text-xs text-gray-600 dark:text-gray-400" for="terms">
+            I agree to the <a class="font-semibold text-primary hover:underline" href="#">Terms and Conditions</a>
+</label>
+</div>
+<div class="pt-4">
+<a href="/patient-dashboard" class="flex w-full items-center justify-center rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 dark:ring-offset-background-dark" type="submit">Register</a>
+</div>
+</form>
+<div class="mt-6 text-center">
+<p class="text-sm text-gray-600 dark:text-gray-400">
+          Already have an account? <a class="font-semibold text-primary hover:underline" href="#">Sign In</a>
+</p>
+</div>
+</main>
+</div>
+
+</body></html>

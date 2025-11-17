@@ -18,7 +18,7 @@ def patient_dashboard(request):
 
 
 def patient_sessions(request):
-    return render(request, 'patient-session.html')
+    return render(request, 'patient-sessions.html')
 
 
 def patients(request):
@@ -33,22 +33,41 @@ def sessions(request):
     return render(request, 'sessions.html')
 
 
-def signin(request):
-    return render(request, 'signin.html')   
+def patient_signin(request):
+    return render(request, 'patient-signin.html')   
 
 
-def signup(request):
-    return render(request, 'signup.html')
+def patient_signup(request):
+    return render(request, 'patient-signup.html')
 
 
-# def therapist_dashboard(request):
-#     return render(request, 'therapist-dashboard.html')
+def patient_settings(request):
+    return render(request, 'patient-settings.html')
 
 
-# def therapist_session(request):
-#     return render(request, 'therapist-session.html')
+# Therapy Views
+def therapist_signup(request):  
+    return render(request, 'therapist-signup.html')
 
 
-# def therapist_sessions(request):
-#     return render(request, 'therapist-sessions.html')
+def therapist_signin(request):
+    return render(request, 'therapist-signin.html')
 
+def therapist_dashboard(request):
+    return render(request, 'therapist-dashboard.html')
+
+
+def therapist_patients(request):
+    return render(request, 'therapist-patients.html')
+
+
+def therapist_sessions(request):
+    return render(request, 'therapist-sessions.html')
+
+
+def therapist_session_details(request):
+    return render(request, 'therapist-session-details.html')
+
+
+def therapist_analytics(request):
+    return render(request, 'therapist-analytics.html')

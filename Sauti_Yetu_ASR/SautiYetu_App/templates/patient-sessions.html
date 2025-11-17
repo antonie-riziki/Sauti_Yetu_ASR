@@ -1,96 +1,258 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sauti Yetu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#0ea4a4",
+              "background-light": "#f8f9fa",
+              "background-dark": "#102222",
+              "text-light": "#343a40",
+              "text-dark": "#e9ecef",
+              "card-light": "#ffffff",
+              "card-dark": "#182c2c",
+              "border-light": "#e9ecef",
+              "border-dark": "#344a4a",
+              "subtle-text-light": "#6c757d",
+              "subtle-text-dark": "#adb5bd"
+            },
+            fontFamily: {
+              "display": ["Lexend", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="flex flex-col md:flex-row min-h-screen">
+
+<!-- Sidebar Navigation (Desktop) -->
+<aside class="hidden md:flex w-64 flex-col gap-y-4 border-r border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-4">
+<div class="flex items-center gap-2 px-2 pb-4">
+<div class="bg-gradient-to-br from-[#6DD5FA] to-[#2980B9] size-8 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg">record_voice_over</span>
+</div>
+<h1 class="text-xl font-bold">Sauti Yetu</h1>
+</div>
+<nav class="flex flex-col gap-2 flex-1">
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors text-subtle-text-light dark:text-subtle-text-dark" href="/patient-dashboard">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-lg bg-primary/10 text-primary font-bold" href="/patient-sessions">
+<span class="material-symbols-outlined">history</span>
+<span>Sessions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors text-subtle-text-light dark:text-subtle-text-dark" href="/nearby">
+<span class="material-symbols-outlined">psychology</span>
+<span>Find Specialist</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors text-subtle-text-light dark:text-subtle-text-dark" href="/community">
+<span class="material-symbols-outlined">forum</span>
+<span>Community</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors text-subtle-text-light dark:text-subtle-text-dark" href="/patient-settings">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors text-subtle-text-light dark:text-subtle-text-dark" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
 
 
-{% load static %}
-
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Sessions – AI Speech Therapy (Patient)</title>
-  <meta name="description" content="View your past and upcoming speech therapy sessions." />
-  <link rel="canonical" href="/patient-sessions.html" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-</head>
-<body>
-<header class="header" role="banner">
-  <div class="container bar">
-    <a href="/" class="logo" aria-label="AI Speech Therapy Home">
-      <span class="logo-mark" aria-hidden="true"></span>
-      <span>AI Speech Therapy</span>
-    </a>
-    <nav class="header-actions" aria-label="Global actions">
-      <div class="accessibility" aria-label="Accessibility toggles">
-        <label class="switch"><input type="checkbox" id="toggle-contrast" aria-label="High contrast" /> High contrast</label>
-        <label class="switch"><input type="checkbox" id="toggle-text" aria-label="Larger text" /> Large text</label>
-        <label class="switch"><input type="checkbox" id="toggle-motion" aria-label="Reduce motion" /> Reduce motion</label>
-      </div>
-      <a href="/session" class="btn btn-primary">Start Session</a>
-      <div class="avatar" aria-hidden="true"></div>
-    </nav>
-  </div>
-</header>
-
-<div class="container layout">
-  <aside class="sidebar" aria-label="Patient navigation">
-    <h2>Patient</h2>
-    <nav>
-      <a href="/patient-dashboard">Dashboard</a>
-      <a href="/patient-sessions" aria-current="page">My Sessions</a>
-      <a href="/nearby">Nearby Therapists</a>
-      <a href="/community">Community</a>
-      <a href="/session">Live Session</a>
-    </nav>
-  </aside>
-
-  <main role="main">
-    <section class="card">
-      <h1>My Sessions</h1>
-      <table class="table" aria-label="Patient session table">
-        <thead>
-          <tr><th>Date</th><th>Type</th><th>Status</th><th>Score</th><th>Actions</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>2025-11-01</td><td>Articulation</td><td><span class="badge">Completed</span></td><td>76</td><td><a href="/session.html" class="btn btn-outline">View</a></td></tr>
-          <tr><td>2025-11-05</td><td>Conversation</td><td><span class="badge" style="background:#fff7ed;color:#92400e;">Upcoming</span></td><td>—</td><td><button class="btn btn-outline">Reschedule</button></td></tr>
-          <tr><td>2025-10-28</td><td>Reading</td><td><span class="badge">Completed</span></td><td>74</td><td><button class="btn btn-outline">View</button></td></tr>
-        </tbody>
-      </table>
-    </section>
-  </main>
+  <!-- Top App Bar -->
+<!-- <header class="sticky top-0 z-10 flex h-16 items-center border-b border-slate-200/80 dark:border-slate-800/80 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm px-4">
+<button class="flex items-center justify-center p-2 text-slate-800 dark:text-slate-200 lg:hidden">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+<h1 class="text-xl font-bold text-slate-900 dark:text-slate-100 flex-1 ml-2 lg:ml-0">My Sessions</h1>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center p-2 text-slate-800 dark:text-slate-200">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+</button>
+<div class="h-10 w-10 rounded-full bg-cover bg-center" data-alt="User profile avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCO4wc0SZRK79sxnQpJKytB-uV0eMlsvmVJit1BJGMk5DQWJPNl-M3chajygh4d0Bx5WTGf7aGffX8XKlEh2LyZ3-RN2ChmkeWF1cb2yaQ0WPpTsTPNbTQtYevBVo0QiiSnsviDA4qmoFHiWp4XYfJWeVGA5lBOM3HgvvmkkhADQSxhpgU8Fce7hBwBld88nZ0glQ-gjAMYhV5uuUqxRGfNNv99bnhgievdu4iwYYgPj-Y0LDyOQSB-KV3QMdPFUBFyujzOM8Bevg')"></div>
+</div>
+</header>-->
+<main class="flex-1 p-4 md:p-6 lg:p-8 space-y-8">
+<!-- Upcoming Sessions Section -->
+<section>
+<h2 class="text-2xl font-bold leading-tight tracking-tight text-slate-900 dark:text-slate-100 px-4 pb-4">Upcoming Sessions</h2>
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between gap-4 rounded-xl bg-white dark:bg-slate-900/50 p-4 shadow-sm">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14" data-alt="Portrait of Dr. Evelyn Reed" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuArCURwGM3sfVTyKLTJgoHpjK3510qL5ext3y--ufYdnwa_02oVSnffqLmU1uLl2rtm2Zgkf3RK0EedIrgoS03SncrqKsXA9o-EEDRZoonpVPXc9Pq83RT8II-k3SHyypTLDWbgeplYwk-RB-f4ldns60fNNMsgGqmTRxliBU1uymDCZb1LCu9kB-xdTXOellD7PJxK9KzVQEwgOavVo9tODHNSR-_wqhJOZyG_xJoUqfWW6Y0sVLT-Tv4h6Hq3EK9O0-ctdzkYOw");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-base font-medium text-slate-900 dark:text-slate-100">Mon, Oct 28 - 10:30 AM</p>
+<p class="text-sm font-normal text-slate-500 dark:text-slate-400">Dr. Evelyn Reed</p>
+<p class="text-sm font-normal text-slate-500 dark:text-slate-400">Conversation Practice</p>
+</div>
+</div>
+<div class="shrink-0">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-medium leading-normal w-fit shadow-sm hover:opacity-90 transition-opacity">
+<span class="truncate">Join Session</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between gap-4 rounded-xl bg-white dark:bg-slate-900/50 p-4 shadow-sm">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14" data-alt="Portrait of Dr. Ben Carter" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCw5hxN8dlHTfHi63oE6R280iF-J3wggPC8HPCBJguR2_UGilV58XK3ObcmzuKD3uLv4j93cnNxbL0gSKO5q37Ix8uk_HOwzVUFEcdHyIqkTQ0xs6OrJWzvbhiwP27Z8hb61GIF4KCh8RldIx0ESjCkNOx3gSjBN_t2Lzz_k83oAc0chVitSVZpgvHnurwLChbApTGBKP5Y7ZMlLM2IWVgLmb83OKC3sco0qEkeE-i7zXM2tqjPMHm4zSqxi0mEByMMjeMVfpMWWQ");'></div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-base font-medium text-slate-900 dark:text-slate-100">Wed, Oct 30 - 2:00 PM</p>
+<p class="text-sm font-normal text-slate-500 dark:text-slate-400">Dr. Ben Carter</p>
+<p class="text-sm font-normal text-slate-500 dark:text-slate-400">Articulation Drills</p>
+</div>
+</div>
+<div class="shrink-0">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm font-medium leading-normal w-fit" disabled="">
+<span class="truncate">Join Session</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Previous Sessions Section -->
+<section>
+<h2 class="text-2xl font-bold leading-tight tracking-tight text-slate-900 dark:text-slate-100 px-4 pb-4">Previous Sessions</h2>
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between gap-4 rounded-xl bg-white dark:bg-slate-900/50 p-4 shadow-sm">
+<div class="flex-1 space-y-2">
+<p class="text-sm font-normal text-slate-500 dark:text-slate-400">Oct 21, 2023</p>
+<p class="text-base font-medium text-slate-900 dark:text-slate-100">Sound Repetition</p>
+<div class="w-full">
+<p class="text-sm font-normal text-slate-500 dark:text-slate-400 mb-1">Articulation Score: 85%</p>
+<div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+</div>
+<div class="shrink-0">
+<button class="flex items-center justify-center gap-2 rounded-lg h-10 px-4 bg-transparent text-primary text-sm font-medium leading-normal w-fit hover:bg-primary/10 transition-colors">
+<span class="truncate">View Details</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between gap-4 rounded-xl bg-white dark:bg-slate-900/50 p-4 shadow-sm">
+<div class="flex-1 space-y-2">
+<p class="text-sm font-normal text-slate-500 dark:text-slate-400">Oct 14, 2023</p>
+<p class="text-base font-medium text-slate-900 dark:text-slate-100">Sentence Building</p>
+<div class="w-full">
+<p class="text-sm font-normal text-slate-500 dark:text-slate-400 mb-1">Fluency Score: 72%</p>
+<div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 72%"></div>
+</div>
+</div>
+</div>
+<div class="shrink-0">
+<button class="flex items-center justify-center gap-2 rounded-lg h-10 px-4 bg-transparent text-primary text-sm font-medium leading-normal w-fit hover:bg-primary/10 transition-colors">
+<span class="truncate">View Details</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Recommended Sessions Section -->
+<section>
+<h2 class="text-2xl font-bold leading-tight tracking-tight text-slate-900 dark:text-slate-100 px-4 pb-4">Recommended For You</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+<div class="flex flex-col rounded-xl bg-white dark:bg-slate-900/50 shadow-sm overflow-hidden">
+<div class="flex items-center justify-center p-6 bg-primary/10 dark:bg-primary/20">
+<span class="material-symbols-outlined text-5xl text-primary">record_voice_over</span>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">Vowel Sound Practice</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1 mb-4 flex-1">Strengthen your pronunciation of core vowel sounds.</p>
+<button class="w-full flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-medium leading-normal shadow-sm hover:opacity-90 transition-opacity">
+<span class="truncate">Start Now</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col rounded-xl bg-white dark:bg-slate-900/50 shadow-sm overflow-hidden">
+<div class="flex items-center justify-center p-6 bg-primary/10 dark:bg-primary/20">
+<span class="material-symbols-outlined text-5xl text-primary">chat_bubble</span>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">Conversation Starters</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1 mb-4 flex-1">Practice initiating and maintaining conversations.</p>
+<button class="w-full flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-medium leading-normal shadow-sm hover:opacity-90 transition-opacity">
+<span class="truncate">Start Now</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col rounded-xl bg-white dark:bg-slate-900/50 shadow-sm overflow-hidden">
+<div class="flex items-center justify-center p-6 bg-primary/10 dark:bg-primary/20">
+<span class="material-symbols-outlined text-5xl text-primary">air</span>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100">Breathing Exercises</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1 mb-4 flex-1">Improve breath control for clearer, steadier speech.</p>
+<button class="w-full flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-medium leading-normal shadow-sm hover:opacity-90 transition-opacity">
+<span class="truncate">Start Now</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
 </div>
 
-<nav class="bottom-nav" aria-label="Mobile navigation">
-  <a href="/patient-dashboard">Dashboard</a>
-  <a href="/patient-sessions" aria-current="page">Sessions</a>
-  <a href="/nearby">Nearby</a>
-  <a href="/community">Community</a>
-</nav>
 
-<script>
-(function(){
-  const root = document.documentElement;
-  const qs = id => document.getElementById(id);
-  const apply = () => {
-    const pref = JSON.parse(localStorage.getItem('a11y')||'{}');
-    if (pref.contrast) root.setAttribute('data-contrast','high'); else root.removeAttribute('data-contrast');
-    if (pref.text) root.setAttribute('data-text','large'); else root.removeAttribute('data-text');
-    if (pref.motion) root.classList.add('reduce-motion'); else root.classList.remove('reduce-motion');
-    if (qs('toggle-contrast')) qs('toggle-contrast').checked = !!pref.contrast;
-    if (qs('toggle-text')) qs('toggle-text').checked = !!pref.text;
-    if (qs('toggle-motion')) qs('toggle-motion').checked = !!pref.motion;
-  };
-  const save = (k,v) => { const p = JSON.parse(localStorage.getItem('a11y')||'{}'); p[k]=v; localStorage.setItem('a11y', JSON.stringify(p)); apply(); };
-  ['toggle-contrast','toggle-text','toggle-motion'].forEach(id=>{
-    const el = qs(id); if (el) el.addEventListener('change',()=>{
-      save(id==='toggle-contrast'?'contrast':id==='toggle-text'?'text':'motion', el.checked);
-    });
-  });
-  apply();
-})();
-</script>
-</body>
-</html>
+
+<!-- Bottom Navigation (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-20 bg-card-light dark:bg-card-dark border-t border-border-light dark:border-border-dark flex justify-around items-center px-4">
+<a class="flex flex-col items-center justify-center w-1/4 gap-1 text-primary" href="/patient-dashboard">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-xs font-medium">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center w-1/4 gap-1 text-subtle-text-light dark:text-subtle-text-dark hover:text-primary" href="/patient-sessions">
+<span class="material-symbols-outlined">history</span>
+<span class="text-xs font-medium">Sessions</span>
+</a>
+<a class="flex flex-col items-center justify-center w-1/4 gap-1 text-subtle-text-light dark:text-subtle-text-dark hover:text-primary" href="/nearby">
+<span class="material-symbols-outlined">psychology</span>
+<span class="text-xs font-medium">Specialists</span>
+</a>
+<a class="flex flex-col items-center justify-center w-1/4 gap-1 text-subtle-text-light dark:text-subtle-text-dark hover:text-primary" href="/community">
+<span class="material-symbols-outlined">forum</span>
+<span class="text-xs font-medium">Community</span>
+</a>
+<a class="flex flex-col items-center justify-center w-1/4 gap-1 text-subtle-text-light dark:text-subtle-text-dark hover:text-primary" href="/patient-settings">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-xs font-medium">Settings</span>
+</a>
+</nav>
+</div>
+</body></html>

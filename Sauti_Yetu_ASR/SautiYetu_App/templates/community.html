@@ -1,112 +1,246 @@
+<!DOCTYPE html>
 
-{% load static %}
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Community - SpeechTherapy App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#0ea4a4",
+              "background-light": "#f8f9fa",
+              "background-dark": "#102222",
+              "text-light": "#343a40",
+              "text-dark": "#e9ecef",
+              "card-light": "#ffffff",
+              "card-dark": "#182c2c",
+              "border-light": "#e9ecef",
+              "border-dark": "#344a4a",
+              "subtle-text-light": "#6c757d",
+              "subtle-text-dark": "#adb5bd"
+            },
+            fontFamily: {
+              "display": ["Lexend", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="flex flex-col md:flex-row min-h-screen">
+<!-- Sidebar Navigation (Desktop) -->
+<aside class="hidden md:flex w-64 flex-col gap-y-4 border-r border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-4">
+<div class="flex items-center gap-2 px-2 pb-4">
+<div class="bg-gradient-to-br from-[#6DD5FA] to-[#2980B9] size-8 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg">record_voice_over</span>
+</div>
+<h1 class="text-xl font-bold">Sauti Yetu</h1>
+</div>
+<nav class="flex flex-col gap-2 flex-1">
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors text-subtle-text-light dark:text-subtle-text-dark" href="/patient-dashboard">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors text-subtle-text-light dark:text-subtle-text-dark" href="/patient-sessions">
+<span class="material-symbols-outlined">history</span>
+<span>Sessions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors text-subtle-text-light dark:text-subtle-text-dark" href="/nearby">
+<span class="material-symbols-outlined">psychology</span>
+<span>Find Specialist</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-lg bg-primary/10 text-primary font-bold" href="/community">
+<span class="material-symbols-outlined">forum</span>
+<span>Community</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors text-subtle-text-light dark:text-subtle-text-dark" href="/patient-settings">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-2.5 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors text-subtle-text-light dark:text-subtle-text-dark" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
 
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Community – AI Speech Therapy</title>
-  <meta name="description" content="Join and leave speech therapy communities for shared learning." />
-  <link rel="canonical" href="/community.html" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-</head>
-<body>
-<header class="header" role="banner">
-  <div class="container bar">
-    <a href="/" class="logo" aria-label="AI Speech Therapy Home">
-      <span class="logo-mark" aria-hidden="true"></span>
-      <span>AI Speech Therapy</span>
-    </a>
-    <nav class="header-actions" aria-label="Global actions">
-      <div class="accessibility" aria-label="Accessibility toggles">
-        <label class="switch"><input type="checkbox" id="toggle-contrast" aria-label="High contrast" /> High contrast</label>
-        <label class="switch"><input type="checkbox" id="toggle-text" aria-label="Larger text" /> Large text</label>
-        <label class="switch"><input type="checkbox" id="toggle-motion" aria-label="Reduce motion" /> Reduce motion</label>
-      </div>
-      <div class="avatar" aria-hidden="true"></div>
-    </nav>
-  </div>
+
+<!-- Main Content -->
+<main class="w-full min-h-screen">
+<!-- Top App Bar (Mobile) -->
+<div class="lg:hidden sticky top-0 z-40 flex items-center bg-content-light/80 dark:bg-content-dark/80 backdrop-blur-sm p-4 justify-between border-b border-gray-200 dark:border-gray-700">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">record_voice_over</span>
+<h2 class="text-lg font-bold">Community</h2>
+</div>
+<button class="flex items-center justify-center rounded-full h-10 w-10 bg-transparent text-text-primary-light dark:text-text-primary-dark">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+<!-- Page Content -->
+<div class="p-4 sm:p-6 lg:p-8">
+<!-- Header -->
+<header class="hidden lg:flex justify-between items-center mb-6">
+<h1 class="text-3xl font-bold leading-tight tracking-tight">Welcome to the Community</h1>
+<button class="flex items-center justify-center rounded-full h-12 w-12 bg-content-light dark:bg-content-dark shadow-sm">
+<span class="material-symbols-outlined text-2xl">account_circle</span>
+</button>
 </header>
-
-<div class="container layout">
-  <aside class="sidebar" aria-label="Patient navigation">
-    <h2>Patient</h2>
-    <nav>
-      <a href="/patient-dashboard">Dashboard</a>
-      <a href="/patient-sessions">My Sessions</a>
-      <a href="/nearby">Nearby Therapists</a>
-      <a href="/community" aria-current="page">Community</a>
-      <a href="/session">Live Session</a>
-    </nav>
-  </aside>
-
-  <main role="main">
-    <section class="grid-3">
-      <article class="card">
-        <h3>Articulation Club</h3>
-        <p>Weekly practice and tips.</p>
-        <div style="margin-top:12px; display:flex; gap:8px;">
-          <button class="btn btn-primary" aria-pressed="false">Join</button>
-          <a class="btn btn-outline" href="#">Details</a>
-        </div>
-      </article>
-      <article class="card">
-        <h3>Fluency Friends</h3>
-        <p>Support group focusing on pacing and flow.</p>
-        <div style="margin-top:12px; display:flex; gap:8px;">
-          <button class="btn btn-outline" aria-pressed="true">Leave</button>
-          <a class="btn btn-outline" href="#">Details</a>
-        </div>
-      </article>
-      <article class="card">
-        <h3>Voice Care</h3>
-        <p>Healthy voice techniques and exercises.</p>
-        <div style="margin-top:12px; display:flex; gap:8px;">
-          <button class="btn btn-primary">Join</button>
-          <a class="btn btn-outline" href="#">Details</a>
-        </div>
-      </article>
-    </section>
-
-    <section class="card">
-      <h3>Community Details</h3>
-      <p>Choose a community to view meeting times and resources.</p>
-    </section>
-  </main>
+<!-- Headline & Filters -->
+<!-- <h1 class="text-2xl lg:text-3xl font-bold leading-tight tracking-tight px-4 sm:px-0 pt-2 lg:pt-0">Find Your Group</h1> -->
+<div class="flex gap-2 sm:gap-3 p-3 flex-wrap pl-4 sm:pl-0 pr-4">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-content-light dark:bg-content-dark shadow-md px-4">
+<p class="text-sm font-medium">Age</p>
+<span class="material-symbols-outlined text-base">arrow_drop_down</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-content-light dark:bg-content-dark shadow-md px-4">
+<p class="text-sm font-medium">Neurodivergent Condition</p>
+<span class="material-symbols-outlined text-base">arrow_drop_down</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-content-light dark:bg-content-dark shadow-md px-4">
+<p class="text-sm font-medium">Region</p>
+<span class="material-symbols-outlined text-base">arrow_drop_down</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full border border-gray-300 dark:border-gray-600 px-4 text-text-secondary-light dark:text-text-secondary-dark">
+<p class="text-sm font-medium">Reset</p>
+<span class="material-symbols-outlined text-base">close</span>
+</button>
+</div>
+<!-- Upcoming Events Section -->
+<section class="py-6">
+<h2 class="text-xl font-bold mb-4 px-4 sm:px-0">Upcoming Events &amp; Sessions</h2>
+<div class="relative">
+<div class="flex gap-4 overflow-x-auto pb-4 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8" style="scrollbar-width: none; -ms-overflow-style: none;">
+<div class="flex-shrink-0 w-72 bg-content-light dark:bg-content-dark rounded-xl shadow-md p-4 flex flex-col gap-3">
+<p class="font-bold">Weekly Voice Practice</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Hosted by Adult Stuttering Support</p>
+<p class="text-sm flex items-center gap-2"><span class="material-symbols-outlined text-base">calendar_today</span>Tues, Nov 12 @ 7:00 PM</p>
+<button class="mt-2 w-full flex items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary/20 text-text-primary-light dark:text-primary-dark text-sm font-medium leading-normal">
+<span class="truncate">RSVP</span>
+</button>
+</div>
+<div class="flex-shrink-0 w-72 bg-content-light dark:bg-content-dark rounded-xl shadow-md p-4 flex flex-col gap-3">
+<p class="font-bold">Ask Me Anything: Speech Pathologist Q&amp;A</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Hosted by Parents of Autistic Children</p>
+<p class="text-sm flex items-center gap-2"><span class="material-symbols-outlined text-base">calendar_today</span>Wed, Nov 13 @ 5:30 PM</p>
+<button class="mt-2 w-full flex items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary/20 text-text-primary-light dark:text-primary-dark text-sm font-medium leading-normal">
+<span class="truncate">View Details</span>
+</button>
+</div>
+<div class="flex-shrink-0 w-72 bg-content-light dark:bg-content-dark rounded-xl shadow-md p-4 flex flex-col gap-3">
+<p class="font-bold">Teen Social Skills Hangout</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Hosted by Teen ADHD &amp; Social Skills</p>
+<p class="text-sm flex items-center gap-2"><span class="material-symbols-outlined text-base">calendar_today</span>Fri, Nov 15 @ 4:00 PM</p>
+<button class="mt-2 w-full flex items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary/20 text-text-primary-light dark:text-primary-dark text-sm font-medium leading-normal">
+<span class="truncate">RSVP</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Community Groups Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-6 pt-4">
+<div class="flex flex-col rounded-xl bg-content-light dark:bg-content-dark shadow-md overflow-hidden">
+<div class="flex flex-col p-4 gap-2">
+<p class="text-lg font-bold">Adult Stuttering Support</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-base font-normal leading-normal">A safe and supportive space for adults who stutter to share experiences, practice techniques, and build confidence together.</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal pt-1">👤 125 Members • 💬 Last post: 2 hours ago</p>
+</div>
+<div class="flex items-center gap-2 border-t border-gray-200 dark:border-gray-700 p-4 mt-auto">
+<button class="flex-1 min-w-0 max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-text-primary-light text-sm font-medium leading-normal">
+<span class="truncate">Join Group</span>
+</button>
+<button class="flex-1 min-w-0 max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/20 text-text-primary-light dark:text-primary-dark text-sm font-medium leading-normal">
+<span class="truncate">View Posts</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col rounded-xl bg-content-light dark:bg-content-dark shadow-md overflow-hidden">
+<div class="flex flex-col p-4 gap-2">
+<p class="text-lg font-bold">Teen ADHD &amp; Social Skills</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-base font-normal leading-normal">Connect with other teens with ADHD. Share tips for school, making friends, and navigating daily life in a fun, judgment-free zone.</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal pt-1">👤 88 Members • 💬 Last post: 5 hours ago</p>
+</div>
+<div class="flex items-center gap-2 border-t border-gray-200 dark:border-gray-700 p-4 mt-auto">
+<button class="flex-1 min-w-0 max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gray-200 dark:bg-gray-600 text-text-primary-light dark:text-text-primary-dark text-sm font-medium leading-normal">
+<span class="truncate">Leave Group</span>
+</button>
+<button class="flex-1 min-w-0 max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/20 text-text-primary-light dark:text-primary-dark text-sm font-medium leading-normal">
+<span class="truncate">View Posts</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col rounded-xl bg-content-light dark:bg-content-dark shadow-md overflow-hidden">
+<div class="flex flex-col p-4 gap-2">
+<p class="text-lg font-bold">Parents of Autistic Children - Midwest</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-base font-normal leading-normal">A regional group for parents in the Midwest to find local resources, share advice, and support each other through the journey of raising autistic children.</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal leading-normal pt-1">👤 214 Members • 💬 Last post: 30 minutes ago</p>
+</div>
+<div class="flex items-center gap-2 border-t border-gray-200 dark:border-gray-700 p-4 mt-auto">
+<button class="flex-1 min-w-0 max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-text-primary-light text-sm font-medium leading-normal">
+<span class="truncate">Join Group</span>
+</button>
+<button class="flex-1 min-w-0 max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/20 text-text-primary-light dark:text-primary-dark text-sm font-medium leading-normal">
+<span class="truncate">View Posts</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
 </div>
 
-<nav class="bottom-nav" aria-label="Mobile navigation">
-  <a href="/patient-dashboard">Dashboard</a>
-  <a href="/patient-sessions">Sessions</a>
-  <a href="/nearby">Nearby</a>
-  <a href="/community" aria-current="page">Community</a>
-</nav>
 
-<script>
-(function(){
-  const root = document.documentElement;
-  const qs = id => document.getElementById(id);
-  const apply = () => {
-    const pref = JSON.parse(localStorage.getItem('a11y')||'{}');
-    if (pref.contrast) root.setAttribute('data-contrast','high'); else root.removeAttribute('data-contrast');
-    if (pref.text) root.setAttribute('data-text','large'); else root.removeAttribute('data-text');
-    if (pref.motion) root.classList.add('reduce-motion'); else root.classList.remove('reduce-motion');
-    if (qs('toggle-contrast')) qs('toggle-contrast').checked = !!pref.contrast;
-    if (qs('toggle-text')) qs('toggle-text').checked = !!pref.text;
-    if (qs('toggle-motion')) qs('toggle-motion').checked = !!pref.motion;
-  };
-  const save = (k,v) => { const p = JSON.parse(localStorage.getItem('a11y')||'{}'); p[k]=v; localStorage.setItem('a11y', JSON.stringify(p)); apply(); };
-  ['toggle-contrast','toggle-text','toggle-motion'].forEach(id=>{
-    const el = qs(id); if (el) el.addEventListener('change',()=>{
-      save(id==='toggle-contrast'?'contrast':id==='toggle-text'?'text':'motion', el.checked);
-    });
-  });
-  apply();
-})();
-</script>
-</body>
-</html>
+
+
+<!-- Bottom Navigation (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-20 bg-card-light dark:bg-card-dark border-t border-border-light dark:border-border-dark flex justify-around items-center px-4">
+<a class="flex flex-col items-center justify-center w-1/4 gap-1 text-primary" href="/patient-dashboard">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-xs font-medium">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center w-1/4 gap-1 text-subtle-text-light dark:text-subtle-text-dark hover:text-primary" href="/patient-sessions">
+<span class="material-symbols-outlined">history</span>
+<span class="text-xs font-medium">Sessions</span>
+</a>
+<a class="flex flex-col items-center justify-center w-1/4 gap-1 text-subtle-text-light dark:text-subtle-text-dark hover:text-primary" href="/nearby">
+<span class="material-symbols-outlined">psychology</span>
+<span class="text-xs font-medium">Specialists</span>
+</a>
+<a class="flex flex-col items-center justify-center w-1/4 gap-1 text-subtle-text-light dark:text-subtle-text-dark hover:text-primary" href="/community">
+<span class="material-symbols-outlined">forum</span>
+<span class="text-xs font-medium">Community</span>
+</a>
+<a class="flex flex-col items-center justify-center w-1/4 gap-1 text-subtle-text-light dark:text-subtle-text-dark hover:text-primary" href="/patient-settings">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-xs font-medium">Settings</span>
+</a>
+</nav>
+</div>
+</body></html>

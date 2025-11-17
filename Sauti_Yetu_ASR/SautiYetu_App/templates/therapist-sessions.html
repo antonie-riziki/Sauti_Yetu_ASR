@@ -1,118 +1,314 @@
+<!DOCTYPE html>
 
-
-{% load static %}
-
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sessions – AI Speech Therapy (Therapist)</title>
-  <meta name="description" content="Manage therapy sessions with a CRUD mockup." />
-  <link rel="canonical" href="/therapist-sessions.html" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-</head>
-<body>
-<header class="header" role="banner">
-  <div class="container bar">
-    <a href="/" class="logo" aria-label="AI Speech Therapy Home">
-      <span class="logo-mark" aria-hidden="true"></span>
-      <span>AI Speech Therapy</span>
-    </a>
-    <nav class="header-actions" aria-label="Global actions">
-      <div class="accessibility" aria-label="Accessibility toggles">
-        <label class="switch"><input type="checkbox" id="toggle-contrast" aria-label="High contrast" /> High contrast</label>
-        <label class="switch"><input type="checkbox" id="toggle-text" aria-label="Larger text" /> Large text</label>
-        <label class="switch"><input type="checkbox" id="toggle-motion" aria-label="Reduce motion" /> Reduce motion</label>
-      </div>
-      <div class="avatar" aria-hidden="true"></div>
-    </nav>
-  </div>
-</header>
-
-<div class="container layout">
-  <aside class="sidebar" aria-label="Therapist navigation">
-    <h2>Therapist</h2>
-    <nav>
-      <a href="/therapist-dashboard">Dashboard</a>
-      <a href="/patients">Patients</a>
-      <a href="/therapist-sessions" aria-current="page">Sessions</a>
-      <a href="/therapist-session">Live Session</a>
-    </nav>
-  </aside>
-
-  <main role="main">
-    <section class="card">
-      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
-        <h1>Session Management</h1>
-        <button class="btn btn-primary" aria-haspopup="dialog" aria-controls="create-modal">Create Session</button>
-      </div>
-      <table class="table" aria-label="Therapist session table">
-        <thead>
-          <tr><th>ID</th><th>Patient</th><th>Date</th><th>Type</th><th>Status</th><th>Actions</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>#1021</td><td>Amani</td><td>2025-11-05</td><td>Articulation</td><td>Scheduled</td><td><button class="btn btn-outline" aria-haspopup="dialog">Edit</button> <button class="btn btn-outline">Delete</button></td></tr>
-          <tr><td>#1019</td><td>Sarah</td><td>2025-11-03</td><td>Conversation</td><td>Completed</td><td><button class="btn btn-outline">Edit</button> <button class="btn btn-outline">Delete</button></td></tr>
-          <tr><td>#1015</td><td>Lina</td><td>2025-10-29</td><td>Reading</td><td>Completed</td><td><button class="btn btn-outline">Edit</button> <button class="btn btn-outline">Delete</button></td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section class="card" role="dialog" aria-modal="true" aria-labelledby="create-title" id="create-modal">
-      <h2 id="create-title">Create Session (Mock)</h2>
-      <div class="grid-3">
-        <div>
-          <label class="label" for="p">Patient</label>
-          <select id="p" class="select"><option>Amani</option><option>Sarah</option><option>Lina</option></select>
-        </div>
-        <div>
-          <label class="label" for="d">Date</label>
-          <input id="d" type="date" class="input">
-        </div>
-        <div>
-          <label class="label" for="t">Type</label>
-          <select id="t" class="select"><option>Articulation</option><option>Conversation</option><option>Reading</option></select>
-        </div>
-      </div>
-      <div style="margin-top:12px; display:flex; gap:8px;">
-        <button class="btn btn-primary">Save (Mock)</button>
-        <button class="btn btn-outline">Close</button>
-      </div>
-    </section>
-  </main>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sessions Management - AI Speech Therapy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#0ea4a4",
+              "background-light": "#f8f9fa",
+              "background-dark": "#102222",
+              "text-light": "#343a40",
+              "text-dark": "#e9ecef",
+              "card-light": "#ffffff",
+              "card-dark": "#182c2c",
+              "border-light": "#e9ecef",
+              "border-dark": "#344a4a",
+              "subtle-text-light": "#6c757d",
+              "subtle-text-dark": "#adb5bd"
+            },
+            fontFamily: {
+              "display": ["Lexend", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .gradient-accent {
+        background: linear-gradient(to right, #4FD1C5, #81E6D9);
+      }
+      .gradient-accent-text {
+        background: linear-gradient(to right, #4FD1C5, #81E6D9);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<!-- Create/Edit Session Modal (Initially Hidden) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 hidden" id="session-modal">
+<div class="bg-card-light dark:bg-card-dark rounded-xl shadow-2xl w-full max-w-lg mx-auto flex flex-col font-display">
+<!-- Modal Header -->
+<div class="flex items-center justify-between p-6 border-b border-border-light dark:border-border-dark">
+<h3 class="text-xl font-bold text-text-light dark:text-text-dark">Create a New Session</h3>
+<button class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-light dark:hover:text-text-dark">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Modal Body / Form -->
+<div class="p-6 space-y-6">
+<div class="space-y-2">
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="session-title">Title</label>
+<input class="w-full h-12 px-4 bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 text-base" id="session-title" placeholder="e.g., Articulation Practice - Week 4" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="assign-patient">Assign Patient</label>
+<select class="w-full h-12 px-4 bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 text-base" id="assign-patient">
+<option>Select a patient</option>
+<option>Alex Johnson</option>
+<option>Maria Garcia</option>
+<option>Chen Wei</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="session-datetime">Select Date &amp; Time</label>
+<input class="w-full h-12 px-4 bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 text-base" id="session-datetime" type="datetime-local"/>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="session-exercises">Recommended Exercises</label>
+<input class="w-full h-12 px-4 bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 text-base" id="session-exercises" placeholder="Type and select exercises" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="session-language">Session Language</label>
+<select class="w-full h-12 px-4 bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 text-base" id="session-language">
+<option>English (US)</option>
+<option>Spanish</option>
+<option>Mandarin</option>
+</select>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="flex items-center justify-end p-6 space-x-4 border-t border-border-light dark:border-border-dark">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-transparent text-text-secondary-light dark:text-text-secondary-dark hover:bg-primary/10 text-base font-bold">Cancel</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white gap-2 text-base font-bold">
+<span>Save Session</span>
+</button>
+</div>
+</div>
 </div>
 
-<nav class="bottom-nav" aria-label="Mobile navigation">
-  <a href="/therapist-dashboard">Dashboard</a>
-  <a href="/patients">Patients</a>
-  <a href="/therapist-sessions" aria-current="page">Sessions</a>
-</nav>
+<!-- <body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark"> -->
+<div class="relative flex min-h-screen w-full">
+<!-- Desktop Sidebar -->
+<aside class="hidden w-64 shrink-0 flex-col gap-4 border-r border-border-light bg-card-light p-4 dark:border-border-dark dark:bg-card-dark lg:flex">
+<div class="flex items-center gap-2 px-2 pb-4">
+<div class="bg-gradient-to-br from-[#6DD5FA] to-[#2980B9] size-8 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg">record_voice_over</span>
+</div>
+<h1 class="text-2xl font-bold tracking-tight text-primary">Sauti Yetu</h1>
+</div>
+<ul class="flex flex-1 flex-col gap-2">
+<a class="flex h-12 cursor-pointer items-center gap-4 rounded-lg px-4 hover:bg-primary/10 dark:hover:bg-primary/20" href="/therapist-dashboard">
+<span class="material-symbols-outlined text-primary">dashboard</span>
+<p class="font-bold text-primary">Dashboard</p>
+</a>
+<a class="flex h-12 cursor-pointer items-center gap-4 rounded-lg px-4 hover:bg-primary/10 dark:hover:bg-primary/20" href="/therapist-patients">
+<span class="material-symbols-outlined">groups</span>
+<p class="font-semibold text-text-light dark:text-text-dark">Patients</p>
+</a>
+<a class="flex h-12 cursor-pointer items-center gap-4 rounded-lg bg-primary/10 px-4 dark:bg-primary/20" href="/therapist-sessions">
+<span class="material-symbols-outlined">event_note</span>
+<p class="font-semibold text-text-light dark:text-text-dark">Sessions</p>
+</a>
+<a class="flex h-12 cursor-pointer items-center gap-4 rounded-lg px-4 hover:bg-primary/10 dark:hover:bg-primary/20" href="/therapist-analytics">
+<span class="material-symbols-outlined">analytics</span>
+<p class="font-semibold text-text-light dark:text-text-dark">Analytics</p>
+</a>
+<!-- <li class="flex h-12 cursor-pointer items-center gap-4 rounded-lg px-4 hover:bg-primary/10 dark:hover:bg-primary/20">
+<span class="material-symbols-outlined">near_me</span>
+<p class="font-semibold text-text-light dark:text-text-dark">Nearby</p>
+</li> -->
+</ul>
+<ul class="flex flex-col gap-2">
+<li class="flex h-12 cursor-pointer items-center gap-4 rounded-lg px-4 hover:bg-primary/10 dark:hover:bg-primary/20">
+<span class="material-symbols-outlined">settings</span>
+<p class="font-semibold text-text-light dark:text-text-dark">Settings</p>
+</li>
+<li class="flex h-12 cursor-pointer items-center gap-4 rounded-lg px-4 hover:bg-primary/10 dark:hover:bg-primary/20">
+<span class="material-symbols-outlined">logout</span>
+<p class="font-semibold text-text-light dark:text-text-dark">Logout</p>
+</li>
+</ul>
+</aside>
 
-<script>
-(function(){
-  const root = document.documentElement;
-  const qs = id => document.getElementById(id);
-  const apply = () => {
-    const pref = JSON.parse(localStorage.getItem('a11y')||'{}');
-    if (pref.contrast) root.setAttribute('data-contrast','high'); else root.removeAttribute('data-contrast');
-    if (pref.text) root.setAttribute('data-text','large'); else root.removeAttribute('data-text');
-    if (pref.motion) root.classList.add('reduce-motion'); else root.classList.remove('reduce-motion');
-    if (qs('toggle-contrast')) qs('toggle-contrast').checked = !!pref.contrast;
-    if (qs('toggle-text')) qs('toggle-text').checked = !!pref.text;
-    if (qs('toggle-motion')) qs('toggle-motion').checked = !!pref.motion;
-  };
-  const save = (k,v) => { const p = JSON.parse(localStorage.getItem('a11y')||'{}'); p[k]=v; localStorage.setItem('a11y', JSON.stringify(p)); apply(); };
-  ['toggle-contrast','toggle-text','toggle-motion'].forEach(id=>{
-    const el = qs(id); if (el) el.addEventListener('change',()=>{
-      save(id==='toggle-contrast'?'contrast':id==='toggle-text'?'text':'motion', el.checked);
-    });
-  });
-  apply();
-})();
-</script>
-</body>
-</html>
+
+<!-- Main Content -->
+<main class="flex-1 flex flex-col pb-24 lg:pb-0">
+<!-- Global Header -->
+<header class="flex items-center bg-background-light dark:bg-background-dark p-4 h-20 border-b border-border-light dark:border-border-dark sticky top-0 z-10 lg:z-0">
+<button class="lg:hidden text-text-light dark:text-text-dark mr-4">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+<div class="flex-1">
+<label class="flex flex-col min-w-40 h-12 w-full max-w-md">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-text-secondary-light dark:text-text-secondary-dark flex bg-primary/10 items-center justify-center pl-4 rounded-l-lg">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-0 border-none bg-primary/10 focus:border-none h-full placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search sessions, patients..."/>
+</div>
+</label>
+</div>
+<div class="flex items-center gap-4 ml-4">
+<button class="text-text-light dark:text-text-dark relative">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+<span class="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-500"></span>
+</button>
+<img class="h-10 w-10 rounded-full object-cover" data-alt="User profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgpT1VermoWmE3Eowy1SionvFOrwVkQQQyTBJSQJ8xHKFWndTt6SNgJee0-j7DbupE5OgtX3ykKSj5QmdMV0X-o7mI33eTBq18fxKcfxTJIuwO6_R_BbeeGExQX7BdqbgS9kd8sAJCTJjX_vtrlSs9H22ViFGWD8kwBu8kMLQDpYiJkD_wJda7xPhg7BPJImHCyNxrvIgGmhc12BBnzRt49-0EoAbiFWvwiI99JyvssRE-dlcEbFD5KirBpmcOyxDKig8yCrVfOw"/>
+</div>
+</header>
+<!-- Page Content -->
+<div class="flex-1 p-4 sm:p-6 lg:p-8">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+<h1 class="text-3xl font-bold text-text-light dark:text-text-dark">Sessions</h1>
+<button class="flex min-w-[84px] w-full sm:w-auto cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 gradient-accent text-white gap-2 text-base font-bold shadow-sm hover:opacity-90">
+<span class="material-symbols-outlined text-2xl">add</span>
+<span class="truncate">Create New Session</span>
+</button>
+</div>
+<!-- Filters -->
+<div class="flex flex-wrap gap-3 mb-6">
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-primary/10 pl-4 pr-3 text-text-light dark:text-text-dark">
+<p class="text-sm font-medium leading-normal">All Patients</p>
+<span class="material-symbols-outlined text-xl">arrow_drop_down</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-primary/10 pl-4 pr-3 text-text-light dark:text-text-dark">
+<p class="text-sm font-medium leading-normal">All Statuses</p>
+<span class="material-symbols-outlined text-xl">arrow_drop_down</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-primary/10 pl-4 pr-3 text-text-light dark:text-text-dark">
+<p class="text-sm font-medium leading-normal">Date Range</p>
+<span class="material-symbols-outlined text-xl">arrow_drop_down</span>
+</button>
+</div>
+<!-- Session List -->
+<div class="grid grid-cols-1 @container xl:grid-cols-2 2xl:grid-cols-3 gap-6">
+<!-- Session Card 1 -->
+<div class="flex flex-col rounded-xl shadow-sm bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark overflow-hidden">
+<div class="p-5 flex flex-col gap-4">
+<div class="flex justify-between items-start gap-2">
+<div class="flex flex-col">
+<p class="text-lg font-bold text-text-light dark:text-text-dark">Articulation Practice - Week 4</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Assigned to: Alex Johnson</p>
+</div>
+<div class="flex items-center gap-2 text-sm font-medium px-3 py-1 rounded-full bg-status-upcoming/10 text-status-upcoming">
+<span class="h-2 w-2 rounded-full bg-status-upcoming"></span>
+<span>Upcoming</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+<span class="material-symbols-outlined text-xl">calendar_today</span>
+<p class="text-sm">Oct 26, 2023 - 2:00 PM</p>
+</div>
+</div>
+<div class="flex items-center justify-end gap-2 p-4 border-t border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark/50">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/10 text-primary text-sm font-medium hover:bg-primary/20">View Analytics</button>
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-10 w-10 text-text-secondary-light dark:text-text-secondary-dark hover:bg-primary/10 hover:text-primary"><span class="material-symbols-outlined text-xl">edit</span></button>
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-10 w-10 text-text-secondary-light dark:text-text-secondary-dark hover:bg-primary/10 hover:text-primary"><span class="material-symbols-outlined text-xl">delete</span></button>
+</div>
+</div>
+<!-- Session Card 2 -->
+<div class="flex flex-col rounded-xl shadow-sm bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark overflow-hidden">
+<div class="p-5 flex flex-col gap-4">
+<div class="flex justify-between items-start gap-2">
+<div class="flex flex-col">
+<p class="text-lg font-bold text-text-light dark:text-text-dark">Fluency Enhancement Drills</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Assigned to: Maria Garcia</p>
+</div>
+<div class="flex items-center gap-2 text-sm font-medium px-3 py-1 rounded-full bg-status-completed/10 text-status-completed">
+<span class="h-2 w-2 rounded-full bg-status-completed"></span>
+<span>Completed</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+<span class="material-symbols-outlined text-xl">calendar_today</span>
+<p class="text-sm">Oct 24, 2023 - 10:00 AM</p>
+</div>
+</div>
+<div class="flex items-center justify-end gap-2 p-4 border-t border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark/50">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/10 text-primary text-sm font-medium hover:bg-primary/20">View Analytics</button>
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-10 w-10 text-text-secondary-light dark:text-text-secondary-dark hover:bg-primary/10 hover:text-primary"><span class="material-symbols-outlined text-xl">edit</span></button>
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-10 w-10 text-text-secondary-light dark:text-text-secondary-dark hover:bg-primary/10 hover:text-primary"><span class="material-symbols-outlined text-xl">delete</span></button>
+</div>
+</div>
+<!-- Session Card 3 -->
+<div class="flex flex-col rounded-xl shadow-sm bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark overflow-hidden">
+<div class="p-5 flex flex-col gap-4">
+<div class="flex justify-between items-start gap-2">
+<div class="flex flex-col">
+<p class="text-lg font-bold text-text-light dark:text-text-dark">Vocal Resonance Exercises</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Assigned to: Chen Wei</p>
+</div>
+<div class="flex items-center gap-2 text-sm font-medium px-3 py-1 rounded-full bg-status-draft/20 text-status-draft">
+<span class="h-2 w-2 rounded-full bg-status-draft"></span>
+<span>Draft</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-text-secondary-light dark:text-text-secondary-dark">
+<span class="material-symbols-outlined text-xl">calendar_today</span>
+<p class="text-sm">Not scheduled</p>
+</div>
+</div>
+<div class="flex items-center justify-end gap-2 p-4 border-t border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark/50">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/10 text-primary text-sm font-medium hover:bg-primary/20">View Analytics</button>
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-10 w-10 text-text-secondary-light dark:text-text-secondary-dark hover:bg-primary/10 hover:text-primary"><span class="material-symbols-outlined text-xl">edit</span></button>
+<button class="flex cursor-pointer items-center justify-center rounded-lg h-10 w-10 text-text-secondary-light dark:text-text-secondary-dark hover:bg-primary/10 hover:text-primary"><span class="material-symbols-outlined text-xl">delete</span></button>
+</div>
+</div>
+<!-- Empty State Card -->
+<div class="col-span-1 xl:col-span-2 2xl:col-span-3 min-h-[400px] flex flex-col items-center justify-center text-center p-8 rounded-xl border-2 border-dashed border-border-light dark:border-border-dark">
+<span class="material-symbols-outlined text-6xl text-text-secondary-light dark:text-text-secondary-dark mb-4">note_add</span>
+<h3 class="text-xl font-bold text-text-light dark:text-text-dark">No Sessions Found</h3>
+<p class="text-text-secondary-light dark:text-text-secondary-dark mt-2 mb-6 max-w-sm">It looks like there are no sessions matching your filters. Get started by creating a new one!</p>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 gradient-accent text-white gap-2 text-base font-bold shadow-sm hover:opacity-90">
+<span class="material-symbols-outlined text-2xl">add</span>
+<span class="truncate">Create Your First Session</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile) -->
+<nav class="lg:hidden fixed bottom-0 left-0 right-0 h-20 bg-card-light dark:bg-card-dark border-t border-border-light dark:border-border-dark flex items-center justify-around z-20">
+<a class="flex flex-col items-center justify-center text-text-secondary-light dark:text-text-secondary-dark w-full h-full hover:text-primary" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-xs">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-secondary-light dark:text-text-secondary-dark w-full h-full hover:text-primary" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-xs">Patients</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary w-full h-full font-bold" href="#">
+<span class="material-symbols-outlined">event_note</span>
+<span class="text-xs">Sessions</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-secondary-light dark:text-text-secondary-dark w-full h-full hover:text-primary" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-xs">Analytics</span>
+</a>
+</nav>
+</div>
+</body></html>
