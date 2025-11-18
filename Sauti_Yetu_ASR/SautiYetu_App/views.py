@@ -71,3 +71,8 @@ def therapist_session_details(request):
 
 def therapist_analytics(request):
     return render(request, 'therapist-analytics.html')
+
+
+
+def live_session(request):
+    return render(request, 'live-session.html')

@@ -24,4 +24,6 @@ urlpatterns = [
     path('therapist-sessions/', views.therapist_sessions, name='therapist_sessions'),
     path('therapist-session-details/', views.therapist_session_details, name='therapist_session_details'),
     path('therapist-analytics/', views.therapist_analytics, name='therapist_analytics'),
+
+    path('live-session/', views.live_session, name='live_session'),
 ]

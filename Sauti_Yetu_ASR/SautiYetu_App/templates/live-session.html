@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sauti Yetu - Therapy Simulation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+
+    <script src='https://8x8.vc/vpaas-magic-cookie-cbef68504d404e36be0adae23321c33a/external_api.js' async></script>
+    <style>html, body, #jaas-container { height: 100%; }</style>
+    
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#0ea4a4",
+              "background-light": "#f6f8f8",
+              "background-dark": "#102222",
+            },
+            fontFamily: {
+              "display": ["Lexend", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+
+    <script type="text/javascript">
+        window.onload = () => {
+        const api = new JitsiMeetExternalAPI("8x8.vc", {
+            roomName: "vpaas-magic-cookie-cbef68504d404e36be0adae23321c33a/SampleAppLikelyInterferencesRewardSideways",
+            parentNode: document.querySelector('#jaas-container'),
+                        // Make sure to include a JWT if you intend to record,
+                        // make outbound calls or use any other premium features!
+                        jwt: "eyJraWQiOiJ2cGFhcy1tYWdpYy1jb29raWUtY2JlZjY4NTA0ZDQwNGUzNmJlMGFkYWUyMzMyMWMzM2EvMTcxZDE4LVNBTVBMRV9BUFAiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJqaXRzaSIsImlzcyI6ImNoYXQiLCJpYXQiOjE3NjMzOTk0MDIsImV4cCI6MTc2MzQwNjYwMiwibmJmIjoxNzYzMzk5Mzk3LCJzdWIiOiJ2cGFhcy1tYWdpYy1jb29raWUtY2JlZjY4NTA0ZDQwNGUzNmJlMGFkYWUyMzMyMWMzM2EiLCJjb250ZXh0Ijp7ImZlYXR1cmVzIjp7ImxpdmVzdHJlYW1pbmciOmZhbHNlLCJmaWxlLXVwbG9hZCI6ZmFsc2UsIm91dGJvdW5kLWNhbGwiOmZhbHNlLCJzaXAtb3V0Ym91bmQtY2FsbCI6ZmFsc2UsInRyYW5zY3JpcHRpb24iOmZhbHNlLCJsaXN0LXZpc2l0b3JzIjpmYWxzZSwicmVjb3JkaW5nIjpmYWxzZSwiZmxpcCI6ZmFsc2V9LCJ1c2VyIjp7ImhpZGRlbi1mcm9tLXJlY29yZGVyIjpmYWxzZSwibW9kZXJhdG9yIjp0cnVlLCJuYW1lIjoiVGVzdCBVc2VyIiwiaWQiOiJnb29nbGUtb2F1dGgyfDExMDM5NDkzMjA1OTg2MzMwNDU2MyIsImF2YXRhciI6IiIsImVtYWlsIjoidGVzdC51c2VyQGNvbXBhbnkuY29tIn19LCJyb29tIjoiKiJ9.oTm3MmSUMVrKILB0B-zDtdX-0kYe8BIxWRP9heOxidNwFZS9LJAP26x682J1vDe-oYbyXJbI94r0SKfZZE4QT0Xu_odlJrfosNWfUjYiiKrYpfGJzkMac5IinW6EaB5SJFSiHbEA2w6Ex3RXKICyJl69LJasz-VW1oknO2uIWun-xoF1QcQEJsSTrMZqUI1K0Dgdxq9_cxBXDzht11mRBU-EccNWu2JaXDcmlsyefVJUMXMrgyRXQSdYGIzxOt0DVNm81D5IIIjPTtfDDFNYyvI68wBP7IzTNa15PSmI906Hw0NMb2sccg2OxkzkE9YTPAnw2WcdvuuJuhJqTd188g"
+        });
+        }
+    </script>
+    </head>
+
+
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0d1b1b] dark:text-gray-200">
+    <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+    <!-- Top App Bar -->
+    <header class="flex items-center bg-background-light dark:bg-background-dark p-4 shadow-sm sticky top-0 z-20">
+    <h1 class="text-[#0d1b1b] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] flex-1">Sauti Yetu</h1>
+    <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600 dark:text-gray-300">
+    <a class="hover:text-primary dark:hover:text-primary" href="/therapist-dashboard">Dashboard</a>
+    <a class="hover:text-primary dark:hover:text-primary" href="">History</a>
+    <a class="hover:text-primary dark:hover:text-primary" href="#">Profile</a>
+    </nav>
+    <div class="flex items-center gap-4 ml-auto">
+    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDlihZKD-2bI5DfD6NH4oBU1x1rmq3YLA3ogNiJ-_5rDN2K4bPvDdlB59aBlQyCGitmgEeE0iuUFDyOYJkQsQCFZboe2nCm-lj4TMsWk-nq7BtJXyJ9Ya8JV7aKVzBhtIMEOrojK4we2VgQQnPFZqJTXxXlYbdFXlS4iTgG7jlx55kUtkjD1CMQk278ySqjsjeu_DpbgEifv4Pu__tZrpXeflIpsBOprOqhyI5ofDyYViqPVAIBDeg6tRQ6B-l0c2L3BxEY48lDwQ");'></div>
+    <button class="md:hidden p-2">
+    <span class="material-symbols-outlined text-[#0d1b1b] dark:text-white">menu</span>
+    </button>
+    </div>
+    </header>
+    <main class="p-4 lg:p-6 flex-1">
+    <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-6">
+    <!-- Main Content: Video and Transcription -->
+    <div class="lg:col-span-2 flex flex-col gap-4">
+    <!-- Video Grid -->
+    <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="bg-cover bg-center flex flex-col rounded-xl justify-end p-4 aspect-video relative overflow-hidden shadow-lg" data-alt="Video feed of Sarah, the therapist" style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAwfjpRORNICrTrxQXBZa-Mc32I0Mv22c07iI6Lhy0i62BlMyzOpNI5SP-9-Bjp4fShPdorLJOBY59Ckk5rD25krXHueXMssRF5yGmvK0jp9cXU03mHdDOnNA5S02BTLf0ptZcE4XYCvFqWpqtDI-LyK-W83RQbQ8m06H8xkresA_S4xrrqyoZUAqOsw2Z1Pc05JB-4kLUrAYpAJ3wFeP4x-ggUdv7cWjBPAJ_FfAdgNtkoztnQSsoc8zwyYKleWomaAVIinlCYOA");'>
+    <p class="text-white text-lg font-bold leading-tight">Sarah (Therapist)</p>
+    </div>
+    <div class="bg-cover bg-center flex flex-col rounded-xl justify-end p-4 aspect-video relative overflow-hidden shadow-lg" data-alt="Video feed of Amani, the patient" style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDOH5fqIpV5lejSKUcvvUXg551jgVM0hbQOStFF1vGdM47OMp1aah_9WLgD_1U1I2d5-eRPs3bN6rHFewgNzFk0_V4YXvSGUD4cNEG-EcRGoXB_93erOxIOb3otVtKTAeTfRoM34RCUJ21umn8MBzR8WU11je3C4m2SxRIrWVrPf1dVhAEU9IIORkadn5nxOh9Z-n2pTzY01uwH4kM7X175PBmC58zm_8XzRXlYUT6aXrrP3Ood-dvlOtbZwwmTFHX9YEIhMBlpxQ");'>
+    <p class="text-white text-lg font-bold leading-tight">Amani (Patient)</p>
+    </div>
+    </div> -->
+    <!-- Call Controls -->
+
+
+    <!-- Video Conference Container -->
+    <div id="jaas-container" class="w-full rounded-xl overflow-hidden bg-black aspect-video mb-2"></div>
+    
+    <!-- <div class="flex justify-center gap-2 px-4 py-3 bg-white/50 dark:bg-background-dark/50 backdrop-blur-sm rounded-full w-fit mx-auto shadow-md border border-gray-200 dark:border-gray-700">
+    <button class="p-3 rounded-full text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-background-light dark:focus:ring-offset-background-dark">
+    <span class="material-symbols-outlined">call_end</span>
+    </button>
+    <button class="p-3 rounded-full text-[#0d1b1b] dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background-light dark:focus:ring-offset-background-dark">
+    <span class="material-symbols-outlined">mic_off</span>
+    </button>
+    <button class="p-3 rounded-full text-[#0d1b1b] dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background-light dark:focus:ring-offset-background-dark">
+    <span class="material-symbols-outlined">videocam_off</span>
+    </button>
+    </div> -->
+
+
+    <!-- Live Transcription -->
+    <div class="bg-white dark:bg-background-dark rounded-xl shadow-sm p-4 border border-gray-200 dark:border-gray-800">
+    <h3 class="text-lg font-semibold mb-3 text-[#0d1b1b] dark:text-white">Live Transcription</h3>
+    <div aria-live="polite" class="h-64 overflow-y-auto space-y-4 pr-2">
+    <div class="flex gap-3">
+    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 shrink-0" data-alt="Avatar of Amani" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBHVaxf9O2wUOvtEJ85l9ZmcVn0fMRGcmqH4dpH_kxfKeIUhI2-0Y4D8ZqxEZxq6BRLZa87oQdR7655srHZT0gvMBSYukxKcMDVeVwlTpPXcjAvEzg04EtjC-CQwlpFJfvxabt37z_vn4Ydo_TPBVWvis0B1bFLmlHB7ojNPXoahl7L8449KJmiikZkevRa0E77_5gFt8TKtnk90CnVvrRxtDLuEX__r6GbaL3AmeNcVFKjHwOFQ-M2sfnH3ezLTk1u6nHvoia3zA");'></div>
+    <div class="flex flex-1 flex-col items-stretch gap-1">
+    <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+    <p class="text-[#0d1b1b] dark:text-white text-base font-bold leading-tight">Amani</p>
+    <p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">[01:15]</p>
+    </div>
+    <p class="text-[#0d1b1b] dark:text-gray-300 text-base font-normal leading-normal">Hello, I'm ready to start the session. I went to the <span class="bg-amber-200 dark:bg-amber-800/50 rounded px-1 py-0.5 font-medium">park</span> today.</p>
+    </div>
+    </div>
+    <div class="flex gap-3">
+    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 shrink-0" data-alt="Avatar of Sarah" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDRCG9FlK87K4xgN4-CZslTGe9Ym7MCFyrUESiUehhsCwI2mndbqeI6Lw5MJC2JDFumG6-xM7fqkB47YQjZm0SXruM6QphcNahuSpwOkJW6MSA7xoOmsWDUFPEpjH7Dzb5cDUbFhnUniXETV7oRP1B6xW2ow_vUq3vjqxpJZw8Vn8i8mXh4GpmTOq9687jTdZjb1Yb3pYbiOA8XUwg-0-t8z6QxItvr0T7oT0UNT95ZyusntrynbFma-IWFhWJuFaOBhoWhf-OKdQ");'></div>
+    <div class="flex flex-1 flex-col items-stretch gap-1">
+    <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+    <p class="text-[#0d1b1b] dark:text-white text-base font-bold leading-tight">Sarah</p>
+    <p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">[01:21]</p>
+    </div>
+    <p class="text-[#0d1b1b] dark:text-gray-300 text-base font-normal leading-normal">Great! Let's begin with the first exercise. Can you say "<span class="bg-amber-200 dark:bg-amber-800/50 rounded px-1 py-0.5 font-medium">red</span> lorry, yellow lorry"?</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <!-- Right Sidebar: AI Analytics & Actions -->
+    <div class="lg:col-span-1 flex flex-col gap-6 mt-6 lg:mt-0">
+    <!-- AI Analytics Panel -->
+    <div class="bg-white dark:bg-background-dark rounded-xl shadow-sm p-4 border border-gray-200 dark:border-gray-800">
+    <h3 class="text-lg font-semibold mb-4 text-[#0d1b1b] dark:text-white">AI Analytics</h3>
+    <div class="flex border-b border-gray-200 dark:border-gray-700">
+    <button class="px-4 py-2 text-sm font-medium border-b-2 border-primary text-primary">Articulation</button>
+    <button class="px-4 py-2 text-sm font-medium text-gray-500 dark:text-gray-400 border-b-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600 hover:text-gray-700 dark:hover:text-gray-200">Spectrogram</button>
+    <button class="px-4 py-2 text-sm font-medium text-gray-500 dark:text-gray-400 border-b-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600 hover:text-gray-700 dark:hover:text-gray-200">SAD</button>
+    </div>
+    <div class="py-4">
+    <h4 class="text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">Top Mispronounced Phonemes</h4>
+    <ul class="space-y-2">
+    <li class="flex justify-between items-center text-sm"><span>/r/ as in "red"</span> <span class="font-semibold text-primary">85%</span></li>
+    <li class="flex justify-between items-center text-sm"><span>/l/ as in "lorry"</span> <span class="font-semibold text-primary">72%</span></li>
+    <li class="flex justify-between items-center text-sm"><span>/s/ as in "session"</span> <span class="font-semibold text-orange-500">60%</span></li>
+    </ul>
+    <h4 class="text-sm font-medium text-gray-600 dark:text-gray-300 mt-6 mb-2">Speech Activity Detection (SAD)</h4>
+    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+    <div class="bg-primary h-2.5 rounded-full" style="width: 65%"></div>
+    </div>
+    </div>
+    </div>
+    <!-- Recommended Sessions -->
+    <div class="bg-white dark:bg-background-dark rounded-xl shadow-sm p-4 border border-gray-200 dark:border-gray-800">
+    <h3 class="text-lg font-semibold mb-3 text-[#0d1b1b] dark:text-white">Recommended Sessions</h3>
+    <div class="space-y-3">
+    <div class="flex items-center gap-4 p-3 rounded-lg bg-gray-100 dark:bg-gray-800/50">
+    <div class="p-2 bg-primary/20 rounded-full text-primary">
+    <span class="material-symbols-outlined">record_voice_over</span>
+    </div>
+    <div>
+    <p class="font-semibold text-[#0d1b1b] dark:text-white">Practice 'R' Sounds</p>
+    <p class="text-sm text-gray-600 dark:text-gray-400">Focus on rhotic consonants.</p>
+    </div>
+    </div>
+    <div class="flex items-center gap-4 p-3 rounded-lg bg-gray-100 dark:bg-gray-800/50">
+    <div class="p-2 bg-primary/20 rounded-full text-primary">
+    <span class="material-symbols-outlined">self_improvement</span>
+    </div>
+    <div>
+    <p class="font-semibold text-[#0d1b1b] dark:text-white">Breathing Exercises</p>
+    <p class="text-sm text-gray-600 dark:text-gray-400">Improve breath support for speech.</p>
+    </div>
+    </div>
+    </div>
+    <button class="mt-4 w-full bg-primary text-white font-semibold py-2.5 px-4 rounded-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background-light dark:focus:ring-offset-background-dark">Schedule Next Session</button>
+    </div>
+    </div>
+    </div>
+    </main>
+
+    </body>
+</html>
