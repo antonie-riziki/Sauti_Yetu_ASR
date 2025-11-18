@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Patient Report</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+            colors: {
+              "primary": "#0ea4a4",
+              "primary-gradient-start": "#4FD1C5",
+              "primary-gradient-end": "#63B3ED",
+              "background-light": "#f8f9fa",
+              "background-dark": "#102222",
+              "text-light": "#343a40",
+              "text-dark": "#e9ecef",
+              "card-light": "#ffffff",
+              "card-dark": "#1A2E2E",
+              "border-light": "#e9ecef",
+              "border-dark": "#344a4a",
+              "subtle-text-light": "#6c757d",
+              "subtle-text-dark": "#adb5bd"
+            },
+        //   colors: {
+        //     "primary": "#197fe6",
+        //     "background-light": "#f6f7f8",
+        //     "background-dark": "#111921",
+        //     "text-light-primary": "#1f2937",
+        //     "text-dark-primary": "#f9fafb",
+        //     "text-light-secondary": "#6b7280",
+        //     "text-dark-secondary": "#9ca3af",
+        //     "border-light": "#e5e7eb",
+        //     "border-dark": "#374151"
+        //   },
+          fontFamily: {
+            "display": ["Lexend", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 24px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<!-- <body class="font-display bg-background-light dark:bg-background-dark text-text-light-primary dark:text-text-dark-primary">
+<div class="relative flex min-h-screen w-full flex-col pb-24"> -->
+
+
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+
+
+<!-- Header -->
+
+<header class="sticky top-0 z-10 flex items-center justify-between border-b border-border-light bg-background-light/80 p-4 backdrop-blur-sm dark:border-border-dark dark:bg-background-dark/80">
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full transition-colors hover:bg-black/5 dark:hover:bg-white/5">
+<span class="material-symbols-outlined text-text-light-primary dark:text-text-dark-primary">arrow_back</span>
+</button>
+<h1 class="flex-1 text-center text-lg font-bold">Patient Report</h1>
+<div class="flex items-center gap-1">
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full transition-colors hover:bg-black/5 dark:hover:bg-white/5">
+<span class="material-symbols-outlined text-text-light-primary dark:text-text-dark-primary">print</span>
+</button>
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full transition-colors hover:bg-black/5 dark:hover:bg-white/5">
+<span class="material-symbols-outlined text-text-light-primary dark:text-text-dark-primary">ios_share</span>
+</button>
+</div>
+</header>
+
+<div class="relative flex min-h-screen w-full">
+
+
+
+<!-- Desktop Sidebar -->
+<aside class="hidden w-64 shrink-0 flex-col gap-4 border-r border-border-light bg-card-light p-4 dark:border-border-dark dark:bg-card-dark lg:flex">
+<div class="flex items-center gap-2 px-2 pb-4">
+<div class="bg-gradient-to-br from-[#6DD5FA] to-[#2980B9] size-8 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg">record_voice_over</span>
+</div>
+<h1 class="text-2xl font-bold tracking-tight text-primary">Sauti Yetu</h1>
+</div>
+<ul class="flex flex-1 flex-col gap-2">
+<a class="flex h-12 cursor-pointer items-center gap-4 rounded-lg bg-primary/10 px-4 dark:bg-primary/20" href="/therapist-dashboard">
+<span class="material-symbols-outlined text-primary">dashboard</span>
+<p class="font-bold text-primary">Dashboard</p>
+</a>
+<a class="flex h-12 cursor-pointer items-center gap-4 rounded-lg px-4 hover:bg-primary/10 dark:hover:bg-primary/20" href="/therapist-patients">
+<span class="material-symbols-outlined">groups</span>
+<p class="font-semibold text-text-light dark:text-text-dark">Patients</p>
+</a>
+<a class="flex h-12 cursor-pointer items-center gap-4 rounded-lg px-4 hover:bg-primary/10 dark:hover:bg-primary/20" href="/therapist-sessions">
+<span class="material-symbols-outlined">event_note</span>
+<p class="font-semibold text-text-light dark:text-text-dark">Sessions</p>
+</a>
+<a class="flex h-12 cursor-pointer items-center gap-4 rounded-lg px-4 hover:bg-primary/10 dark:hover:bg-primary/20" href="/therapist-analytics">
+<span class="material-symbols-outlined">analytics</span>
+<p class="font-semibold text-text-light dark:text-text-dark">Analytics</p>
+</a>
+<!-- <li class="flex h-12 cursor-pointer items-center gap-4 rounded-lg px-4 hover:bg-primary/10 dark:hover:bg-primary/20">
+<span class="material-symbols-outlined">near_me</span>
+<p class="font-semibold text-text-light dark:text-text-dark">Nearby</p>
+</li> -->
+</ul>
+<ul class="flex flex-col gap-2">
+<li class="flex h-12 cursor-pointer items-center gap-4 rounded-lg px-4 hover:bg-primary/10 dark:hover:bg-primary/20">
+<span class="material-symbols-outlined">settings</span>
+<p class="font-semibold text-text-light dark:text-text-dark">Settings</p>
+</li>
+<li class="flex h-12 cursor-pointer items-center gap-4 rounded-lg px-4 hover:bg-primary/10 dark:hover:bg-primary/20">
+<span class="material-symbols-outlined">logout</span>
+<p class="font-semibold text-text-light dark:text-text-dark">Logout</p>
+</li>
+</ul>
+</aside>
+
+
+
+
+<main class="flex flex-col gap-6 p-4">
+<section class="flex w-full flex-col gap-4 rounded-xl border border-border-light bg-white p-4 dark:border-border-dark dark:bg-background-dark/50 @container sm:flex-row sm:items-center sm:justify-between">
+<div class="flex items-center gap-4">
+<img class="h-20 w-20 shrink-0 rounded-full object-cover" data-alt="Portrait of a young patient smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLc_Jroti_Ga1TWj_2uxe0wBTRgGcu56L6Wm0ccds5hDDnKRYqkehBPp-ehSQQQxOaXoyiXJ_NmM9x1DoPWnH8RprpFtuQVwnq1Gz5XqBm_yPgAxlNeI8l6q_c2wP148T9aQDLtvWnIktp88sauESKT991QnpRWGEb7Hi_cGqRx7V1r1VN24r626OCDPKUNkmku9VbFfEszhZ6SLCh5gNDn3MzrPv51Qi8_eQcDVqtvkSen0Tj56qZOms7d26FZCA1Ut1esBrXKg"/>
+<div class="flex flex-col justify-center">
+<p class="text-xl font-bold text-text-light-primary dark:text-text-dark-primary">Elara Vance</p>
+<p class="text-base text-text-light-secondary dark:text-text-dark-secondary">Age: 8</p>
+<div class="mt-1 flex flex-wrap gap-2">
+<span class="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary dark:bg-primary/20">Autism Spectrum</span>
+<span class="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary dark:bg-primary/20">Stuttering</span>
+</div>
+</div>
+</div>
+<button class="mt-4 w-full rounded-lg bg-primary/10 px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30 sm:mt-0 sm:w-auto">
+          View Profile
+        </button>
+</section>
+<section>
+<h2 class="px-2 pb-2 text-lg font-bold">Key Metrics</h2>
+<div class="grid grid-cols-2 gap-4 md:grid-cols-3">
+<div class="flex flex-col gap-1 rounded-xl border border-border-light bg-white p-4 dark:border-border-dark dark:bg-background-dark/50">
+<p class="text-sm font-medium text-text-light-secondary dark:text-text-dark-secondary">Articulation Score</p>
+<p class="text-2xl font-bold text-text-light-primary dark:text-text-dark-primary">82</p>
+</div>
+<div class="flex flex-col gap-1 rounded-xl border border-border-light bg-white p-4 dark:border-border-dark dark:bg-background-dark/50">
+<p class="text-sm font-medium text-text-light-secondary dark:text-text-dark-secondary">Goal Completion</p>
+<p class="text-2xl font-bold text-text-light-primary dark:text-text-dark-primary">65%</p>
+</div>
+<div class="col-span-2 flex flex-col gap-1 rounded-xl border border-border-light bg-white p-4 dark:border-border-dark dark:bg-background-dark/50 md:col-span-1">
+<p class="text-sm font-medium text-text-light-secondary dark:text-text-dark-secondary">Session Frequency</p>
+<p class="text-2xl font-bold text-text-light-primary dark:text-text-dark-primary">3/week</p>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center justify-between px-2 pb-2">
+<h2 class="text-lg font-bold">Articulation Progress</h2>
+<div class="flex gap-1 rounded-lg bg-background-light p-1 dark:bg-background-dark/50">
+<button class="rounded-md px-2 py-1 text-xs font-semibold text-text-light-secondary dark:text-text-dark-secondary">W</button>
+<button class="rounded-md bg-white px-2 py-1 text-xs font-semibold text-primary shadow-sm dark:bg-background-dark">M</button>
+<button class="rounded-md px-2 py-1 text-xs font-semibold text-text-light-secondary dark:text-text-dark-secondary">All</button>
+</div>
+</div>
+<div class="rounded-xl border border-border-light bg-white p-4 dark:border-border-dark dark:bg-background-dark/50">
+<div class="h-48 w-full">
+<img class="h-full w-full object-contain" data-alt="A line chart showing articulation score improving from 45 to 82 over seven months." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH805aVRwJwcWnng8iBG_eSwsBFgEZvBJ1y6I-hWJ_eTdujipbTYFIELTYUSL8-MNXfDX6ewRe17LLrSdiq4MuMbiHRNm8HsLh6rh91-6UNtvHoC9nWBsFuuNz5J1xGVv3c-cGctIStow2y0KJY96yQY1xupdZ1-uFvYEG4Xu5oQylbyvWyPXTfQGz6j27HAV46W3Cds_0kFjlFxvL0vy-7-mqYaHqtB5U3FbINzigqtfpJPXvQoxHnSPSFvvIQM7oO0XKbAM-3w"/>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center justify-between px-2 pb-2">
+<h2 class="text-lg font-bold">Goals &amp; Milestones</h2>
+<button class="flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary transition-colors hover:bg-primary/20 dark:bg-primary/20 dark:hover:bg-primary/30">
+<span class="material-symbols-outlined !text-base">add</span>
+            New Goal
+          </button>
+</div>
+<div class="flex flex-col gap-3 rounded-xl border border-border-light bg-white p-4 dark:border-border-dark dark:bg-background-dark/50">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<p class="font-medium">Consistently produce /r/ sound</p>
+<p class="text-sm font-medium text-text-light-secondary dark:text-text-dark-secondary">80%</p>
+</div>
+<div class="h-2 w-full rounded-full bg-background-light dark:bg-background-dark">
+<div class="h-2 rounded-full bg-primary" style="width: 80%"></div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<p class="font-medium">Improve fluency in conversation</p>
+<p class="text-sm font-medium text-text-light-secondary dark:text-text-dark-secondary">55%</p>
+</div>
+<div class="h-2 w-full rounded-full bg-background-light dark:bg-background-dark">
+<div class="h-2 rounded-full bg-primary" style="width: 55%"></div>
+</div>
+</div>
+</div>
+</section>
+<section class="grid gap-6 md:grid-cols-2">
+<div>
+<h2 class="px-2 pb-2 text-lg font-bold">Top Misarticulations</h2>
+<div class="flex flex-col gap-3 rounded-xl border border-border-light bg-white p-4 dark:border-border-dark dark:bg-background-dark/50">
+<p class="rounded-lg bg-background-light p-3 dark:bg-background-dark">/r/ in initial position (e.g., "red")</p>
+<p class="rounded-lg bg-background-light p-3 dark:bg-background-dark">/s/ blend in medial position (e.g., "basket")</p>
+<p class="rounded-lg bg-background-light p-3 dark:bg-background-dark">/th/ sound (voiceless)</p>
+</div>
+</div>
+<div>
+<h2 class="px-2 pb-2 text-lg font-bold">Recommended Exercises</h2>
+<div class="flex flex-col gap-3 rounded-xl border border-border-light bg-white p-4 dark:border-border-dark dark:bg-background-dark/50">
+<p class="rounded-lg bg-background-light p-3 dark:bg-background-dark">"Racing Robot" /r/ sound drill</p>
+<p class="rounded-lg bg-background-light p-3 dark:bg-background-dark">"Silly Snake Stories" for /s/ blends</p>
+<p class="rounded-lg bg-background-light p-3 dark:bg-background-dark">Mirror practice for tongue placement</p>
+</div>
+</div>
+</section>
+<section>
+<h2 class="px-2 pb-2 text-lg font-bold">Session History</h2>
+<div class="flex flex-col gap-3">
+<div class="rounded-xl border border-border-light bg-white p-4 dark:border-border-dark dark:bg-background-dark/50">
+<div class="flex items-center justify-between">
+<div>
+<p class="font-semibold">July 18, 2024</p>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">Articulation Drill</p>
+</div>
+<div class="flex items-center gap-2">
+<p class="font-bold">85</p>
+<button class="flex size-8 items-center justify-center rounded-full transition-colors hover:bg-black/5 dark:hover:bg-white/5">
+<span class="material-symbols-outlined !text-xl text-text-light-secondary dark:text-text-dark-secondary">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<div class="rounded-xl border border-border-light bg-white p-4 dark:border-border-dark dark:bg-background-dark/50">
+<div class="flex items-center justify-between">
+<div>
+<p class="font-semibold">July 16, 2024</p>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">Fluency Practice</p>
+</div>
+<div class="flex items-center gap-2">
+<p class="font-bold">79</p>
+<button class="flex size-8 items-center justify-center rounded-full transition-colors hover:bg-black/5 dark:hover:bg-white/5">
+<span class="material-symbols-outlined !text-xl text-text-light-secondary dark:text-text-dark-secondary">expand_more</span>
+</button>
+</div>
+</div>
+<div class="mt-4 border-t border-border-light pt-3 text-text-light-secondary dark:border-border-dark dark:text-text-dark-secondary">
+<p class="text-sm"><span class="font-semibold text-text-light-primary dark:text-text-dark-primary">Therapist Note:</span> Elara showed great improvement in conversational flow. Still some hesitation on multi-syllable words. We worked on pacing techniques.</p>
+</div>
+</div>
+<div class="rounded-xl border border-border-light bg-white p-4 dark:border-border-dark dark:bg-background-dark/50">
+<div class="flex items-center justify-between">
+<div>
+<p class="font-semibold">July 15, 2024</p>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">Articulation Drill</p>
+</div>
+<div class="flex items-center gap-2">
+<p class="font-bold">81</p>
+<button class="flex size-8 items-center justify-center rounded-full transition-colors hover:bg-black/5 dark:hover:bg-white/5">
+<span class="material-symbols-outlined !text-xl text-text-light-secondary dark:text-text-dark-secondary">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- 
+<nav class="fixed bottom-0 left-0 z-10 w-full border-t border-border-light bg-background-light/80 backdrop-blur-sm dark:border-border-dark dark:bg-background-dark/80">
+<div class="mx-auto grid h-16 max-w-md grid-cols-5">
+<a class="flex flex-col items-center justify-center gap-1 p-2 text-text-light-secondary transition-colors hover:text-primary dark:text-text-dark-secondary dark:hover:text-primary" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-xs">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 rounded-t-lg bg-primary/10 p-2 text-primary dark:bg-primary/20" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="text-xs font-semibold">Patients</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 p-2 text-text-light-secondary transition-colors hover:text-primary dark:text-text-dark-secondary dark:hover:text-primary" href="#">
+<span class="material-symbols-outlined">event_note</span>
+<span class="text-xs">Sessions</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 p-2 text-text-light-secondary transition-colors hover:text-primary dark:text-text-dark-secondary dark:hover:text-primary" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-xs">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 p-2 text-text-light-secondary transition-colors hover:text-primary dark:text-text-dark-secondary dark:hover:text-primary" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-xs">Settings</span>
+</a>
+</div>
+</nav> -->
+</div>
+
+</body></html>
