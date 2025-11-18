@@ -8,6 +8,33 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+
+    .multi-line-chart-card {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        border: 1px solid #e5e7eb;
+        width: 1000px;
+        max-width: 2000px;
+    }
+
+    /* Prevent chart from running endlessly */
+    .multi-line-chart-card canvas {
+        height: 420px !important;
+    }
+
+    .multi-line-chart-card h3 {
+        margin-bottom: 5px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+
+</style>
+
 <script id="tailwind-config">
     tailwind.config = {
       darkMode: "class",
@@ -28,17 +55,7 @@
               "subtle-text-light": "#6c757d",
               "subtle-text-dark": "#adb5bd"
             },
-        //   colors: {
-        //     "primary": "#197fe6",
-        //     "background-light": "#f6f7f8",
-        //     "background-dark": "#111921",
-        //     "text-light-primary": "#1f2937",
-        //     "text-dark-primary": "#f9fafb",
-        //     "text-light-secondary": "#6b7280",
-        //     "text-dark-secondary": "#9ca3af",
-        //     "border-light": "#e5e7eb",
-        //     "border-dark": "#374151"
-        //   },
+        
           fontFamily: {
             "display": ["Lexend", "sans-serif"]
           },
@@ -186,8 +203,15 @@
 </div>
 </div>
 <div class="rounded-xl border border-border-light bg-white p-4 dark:border-border-dark dark:bg-background-dark/50">
-<div class="h-48 w-full">
-<img class="h-full w-full object-contain" data-alt="A line chart showing articulation score improving from 45 to 82 over seven months." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH805aVRwJwcWnng8iBG_eSwsBFgEZvBJ1y6I-hWJ_eTdujipbTYFIELTYUSL8-MNXfDX6ewRe17LLrSdiq4MuMbiHRNm8HsLh6rh91-6UNtvHoC9nWBsFuuNz5J1xGVv3c-cGctIStow2y0KJY96yQY1xupdZ1-uFvYEG4Xu5oQylbyvWyPXTfQGz6j27HAV46W3Cds_0kFjlFxvL0vy-7-mqYaHqtB5U3FbINzigqtfpJPXvQoxHnSPSFvvIQM7oO0XKbAM-3w"/>
+
+<div class="multi-line-chart-card">
+    <h3>Articulation Metrics Progress</h3>
+    <canvas id="articulationMultiChart"></canvas>
+</div>
+
+<div class="h-10 w-full">
+
+
 </div>
 </div>
 </section>
@@ -316,4 +340,80 @@
 </nav> -->
 </div>
 
-</body></html>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+const ctx = document.getElementById('articulationMultiChart').getContext('2d');
+
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6"],
+        datasets: [
+            {
+                label: "/s/ Accuracy",
+                data: [40, 48, 55, 63, 70, 78],
+                borderColor: "#0ea5a4",
+                backgroundColor: "rgba(14,165,164,0.15)",
+                borderWidth: 3,
+                tension: 0.35,
+                pointRadius: 3
+            },
+            {
+                label: "/r/ Accuracy",
+                data: [35, 42, 50, 57, 66, 75],
+                borderColor: "#7c3aed",
+                backgroundColor: "rgba(124,58,237,0.15)",
+                borderWidth: 3,
+                tension: 0.35,
+                pointRadius: 3
+            },
+            {
+                label: "Phoneme Clarity",
+                data: [50, 53, 59, 64, 70, 81],
+                borderColor: "#f59e0b",
+                backgroundColor: "rgba(245,158,11,0.15)",
+                borderWidth: 3,
+                tension: 0.35,
+                pointRadius: 3
+            },
+            {
+                label: "Speech Rate (WPM)",
+                data: [80, 85, 88, 92, 100, 105],
+                borderColor: "#ef4444",
+                backgroundColor: "rgba(239,68,68,0.15)",
+                borderWidth: 3,
+                tension: 0.35,
+                pointRadius: 3,
+                yAxisID: "rate"
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 100,
+            },
+            rate: {
+                beginAtZero: true,
+                position: "right"
+            }
+        }
+    }
+});
+</script>
+
+
+
+
+</body>
+
+</html>
