@@ -1,4 +1,10 @@
+import sys
+
 from django.shortcuts import render
+
+sys.path.insert(1, 'SautiYetu_App/ASR/')
+
+from load_model import transcribe_en_audio
 
 # Create your views here.
 def home(request):
@@ -53,6 +59,7 @@ def therapist_signup(request):
 def therapist_signin(request):
     return render(request, 'therapist-signin.html')
 
+
 def therapist_dashboard(request):
     return render(request, 'therapist-dashboard.html')
 
@@ -79,3 +86,5 @@ def therapist_patients_report(request):
 
 def live_session(request):
     return render(request, 'live-session.html')
+
+
