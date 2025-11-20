@@ -4,7 +4,11 @@ from django.shortcuts import render
 
 sys.path.insert(1, 'SautiYetu_App/ASR/')
 
-from load_model import transcribe_en_audio
+# from load_model import transcribe_en_audio
+
+
+# audio_path = 'SautiYetu_App/ASR/sample5.wav'
+# model_id = "sir-antonie/asr_model_v2"
 
 # Create your views here.
 def home(request):
@@ -85,6 +89,8 @@ def therapist_patients_report(request):
 
 
 def live_session(request):
+    # transcribed_text = transcribe_en_audio(audio_path, model_id)
+    # context = {'transcription':transcribed_text}
     return render(request, 'live-session.html')
 
 

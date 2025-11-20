@@ -7,6 +7,7 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
     <script src='https://8x8.vc/vpaas-magic-cookie-cbef68504d404e36be0adae23321c33a/external_api.js' async></script>
     <style>html, body, #jaas-container { height: 100%; }</style>
@@ -51,11 +52,11 @@
     <h1 class="text-[#0d1b1b] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] flex-1">Sauti Yetu</h1>
     <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600 dark:text-gray-300">
     <a class="hover:text-primary dark:hover:text-primary" href="/therapist-dashboard">Dashboard</a>
-    <a class="hover:text-primary dark:hover:text-primary" href="">History</a>
-    <a class="hover:text-primary dark:hover:text-primary" href="#">Profile</a>
+    <a class="hover:text-primary dark:hover:text-primary" href="/therapist-patients">Patients</a>
+    <a class="hover:text-primary dark:hover:text-primary" href="/therapist-sessions">Sessions</a>
     </nav>
     <div class="flex items-center gap-4 ml-auto">
-    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDlihZKD-2bI5DfD6NH4oBU1x1rmq3YLA3ogNiJ-_5rDN2K4bPvDdlB59aBlQyCGitmgEeE0iuUFDyOYJkQsQCFZboe2nCm-lj4TMsWk-nq7BtJXyJ9Ya8JV7aKVzBhtIMEOrojK4we2VgQQnPFZqJTXxXlYbdFXlS4iTgG7jlx55kUtkjD1CMQk278ySqjsjeu_DpbgEifv4Pu__tZrpXeflIpsBOprOqhyI5ofDyYViqPVAIBDeg6tRQ6B-l0c2L3BxEY48lDwQ");'></div>
+    <div class="h-10 w-10 rounded-full bg-cover bg-center" data-alt="Profile picture of Dr. Anya Sharma" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDY2oge6bAmSsdiohas5KSSpEcY9aCuYNimaw-_8sA_c9HsKt6cIGIG5X0lww1lZHkFRTSgsw_Tu94dzWSa7K3EpncopJeWwO_cLbGdnAlbkImaL5mJYFsW5VhHahT-3FlWNBcQTempyBK54-Z2cCyoSeosukLBdv6sBVlcFJglIYFumK3XYl6xtuz9msgSlNKUbzXMcoDNRT6xqJfjBdZWsFYKoLjFIZX-gIXwoGFWUaeeQExQnQqXwDocqnerymBn8wBCop45dg')"></div>
     <button class="md:hidden p-2">
     <span class="material-symbols-outlined text-[#0d1b1b] dark:text-white">menu</span>
     </button>
@@ -138,17 +139,19 @@
     <p class="text-[#0d1b1b] dark:text-white text-base font-bold leading-tight">Amani</p>
     <p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">[01:15]</p>
     </div>
-    <p class="text-[#0d1b1b] dark:text-gray-300 text-base font-normal leading-normal">Hello, I'm ready to start the session. I went to the <span class="bg-amber-200 dark:bg-amber-800/50 rounded px-1 py-0.5 font-medium">park</span> today.</p>
+    <p class="text-[#0d1b1b] dark:text-gray-300 text-base font-normal leading-normal"> Hello, I'm ready to to to to start the the session. I went to the <span class="bg-amber-200 dark:bg-amber-800/50 rounded px-1 py-0.5 font-medium">pa pa park</span> today.</p>
+    <p class="text-[#0d1b1b] dark:text-gray-300 text-base font-normal leading-normal rounded-lg bg-gray-100 dark:bg-gray-800/50" style="padding: 10px; border-color: #A0E8E8; background-color: #A0E8E8;"> Wîhîîga, ndarî kũgatahinia session. Rũciũ ndathii <span class="bg-amber-200 dark:bg-amber-800/50 rounded px-1 py-0.5 font-medium">parke.</span></p>
     </div>
     </div>
     <div class="flex gap-3">
-    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 shrink-0" data-alt="Avatar of Sarah" style='background-image: url("https://speechtherapytotos.com/wp-content/uploads/2022/10/Group-256-738-x-658.jpg");'></div>
+    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 shrink-0" data-alt="Avatar of Sarah" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDY2oge6bAmSsdiohas5KSSpEcY9aCuYNimaw-_8sA_c9HsKt6cIGIG5X0lww1lZHkFRTSgsw_Tu94dzWSa7K3EpncopJeWwO_cLbGdnAlbkImaL5mJYFsW5VhHahT-3FlWNBcQTempyBK54-Z2cCyoSeosukLBdv6sBVlcFJglIYFumK3XYl6xtuz9msgSlNKUbzXMcoDNRT6xqJfjBdZWsFYKoLjFIZX-gIXwoGFWUaeeQExQnQqXwDocqnerymBn8wBCop45dg");'></div>
     <div class="flex flex-1 flex-col items-stretch gap-1">
     <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
     <p class="text-[#0d1b1b] dark:text-white text-base font-bold leading-tight">Sarah</p>
     <p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">[01:21]</p>
     </div>
-    <p class="text-[#0d1b1b] dark:text-gray-300 text-base font-normal leading-normal">Great! Let's begin with the first exercise. Can you say "<span class="bg-amber-200 dark:bg-amber-800/50 rounded px-1 py-0.5 font-medium">red</span> lorry, yellow lorry"?</p>
+    <p class="text-[#0d1b1b] dark:text-gray-300 text-base font-normal leading-normal"> Nî wega! Tũtigĩrĩre na watho wa mbere. Wega ũgĩkũga ati ‘lorî <span class="bg-amber-200 dark:bg-amber-800/50 rounded px-1 py-0.5 font-medium">njerũ, </span> lorî ya rangi ya thahabu’?</p>
+    <p class="text-[#0d1b1b] dark:text-gray-300 text-base font-normal leading-normal rounded-lg bg-gray-100 dark:bg-gray-800/50" style="padding: 10px; border-color: #A0E8E8; background-color: #A0E8E8;"">Great! Let's begin with the first exercise. Can you say "<span class="bg-amber-200 dark:bg-amber-800/50 rounded px-1 py-0.5 font-medium">red</span> lorry, yellow lorry"?</p>
     </div>
     </div>
     </div>
@@ -157,7 +160,7 @@
     <!-- Right Sidebar: AI Analytics & Actions -->
     <div class="lg:col-span-1 flex flex-col gap-6 mt-6 lg:mt-0">
     <!-- AI Analytics Panel -->
-    <div class="bg-white dark:bg-background-dark rounded-xl shadow-sm p-4 border border-gray-200 dark:border-gray-800">
+    <!-- <div class="bg-white dark:bg-background-dark rounded-xl shadow-sm p-4 border border-gray-200 dark:border-gray-800">
     <h3 class="text-lg font-semibold mb-4 text-[#0d1b1b] dark:text-white">AI Analytics</h3>
     <div class="flex border-b border-gray-200 dark:border-gray-700">
     <button class="px-4 py-2 text-sm font-medium border-b-2 border-primary text-primary">Articulation</button>
@@ -176,7 +179,129 @@
     <div class="bg-primary h-2.5 rounded-full" style="width: 65%"></div>
     </div>
     </div>
-    </div>
+    </div> -->
+
+    <div x-data="{ tab: 'phonemes' }" class="py-4 shadow-md " style="padding: 10px; border-radius: 10px; height: 500px;">
+
+      <!-- TAB BUTTONS -->
+      <div class="flex gap-4 border-b mb-4">
+          <button 
+              @click="tab = 'phonemes'"
+              :class="tab === 'phonemes' 
+                  ? 'border-primary text-primary border-b-2' 
+                  : 'text-gray-500'"
+              class="pb-2 text-sm font-medium">
+              Phonemes
+          </button>
+
+          <button 
+              @click="tab = 'sad'"
+              :class="tab === 'sad' 
+                  ? 'border-primary text-primary border-b-2' 
+                  : 'text-gray-500'"
+              class="pb-2 text-sm font-medium">
+              Speech Analysis
+          </button>
+
+          <button 
+              @click="tab = 'charts'"
+              :class="tab === 'charts' 
+                  ? 'border-primary text-primary border-b-2' 
+                  : 'text-gray-500'"
+              class="pb-2 text-sm font-medium">
+              Charts
+          </button>
+      </div>
+
+      <!-- TAB CONTENT: PHONEMES -->
+      <div x-show="tab === 'phonemes'" style="padding:20px;">
+          <h4 class="text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
+              Top Mispronounced Phonemes
+          </h4>
+          <ul class="space-y-2">
+              <li class="flex justify-between items-center text-sm">
+                  <span>/r/ as in "red"</span> 
+                  <span class="font-semibold text-primary">85%</span>
+              </li>
+              <li class="flex justify-between items-center text-sm">
+                  <span>/l/ as in "lorry"</span> 
+                  <span class="font-semibold text-primary">72%</span>
+              </li>
+              <li class="flex justify-between items-center text-sm">
+                  <span>/s/ as in "session"</span> 
+                  <span class="font-semibold text-orange-500">60%</span>
+              </li>
+              <li class="flex justify-between items-center text-sm">
+                  <span>/θ/ as in "think"</span> 
+                  <span class="font-semibold text-orange-500">58%</span>
+              </li>
+
+              <li class="flex justify-between items-center text-sm">
+                  <span>/ð/ as in "this"</span> 
+                  <span class="font-semibold text-orange-500">55%</span>
+              </li>
+
+              <li class="flex justify-between items-center text-sm">
+                  <span>/ʃ/ as in "shoe"</span> 
+                  <span class="font-semibold text-orange-500">52%</span>
+              </li>
+
+              <li class="flex justify-between items-center text-sm">
+                  <span>/tʃ/ as in "church"</span> 
+                  <span class="font-semibold text-orange-500">50%</span>
+              </li>
+
+              <li class="flex justify-between items-center text-sm">
+                  <span>/v/ as in "van"</span> 
+                  <span class="font-semibold text-green-600">45%</span>
+              </li>
+
+              <li class="flex justify-between items-center text-sm">
+                  <span>/z/ as in "zoo"</span> 
+                  <span class="font-semibold text-green-600">42%</span>
+              </li>
+
+              <li class="flex justify-between items-center text-sm">
+                  <span>/k/ as in "cat"</span> 
+                  <span class="font-semibold text-green-600">40%</span>
+              </li>
+
+              <li class="flex justify-between items-center text-sm">
+                  <span>/g/ as in "go"</span> 
+                  <span class="font-semibold text-red-600">38%</span>
+              </li>
+          </ul>
+      </div>
+
+      
+      <div x-show="tab === 'sad'">
+          <h4 class="text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
+              Speech Activity Detection (SAD)
+          </h4>
+
+          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+              <div class="bg-primary h-2.5 rounded-full" style="width: 65%"></div>
+          </div>
+
+          <h4 class="text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
+              Speech Activity Detection (SAD)
+          </h4>
+
+          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+              <div class="bg-primary h-2.5 rounded-full" style="width: 65%"></div>
+          </div>
+      </div>
+
+      <!-- TAB CONTENT: OTHER -->
+      <div x-show="tab === 'charts'">
+          <p class="text-sm text-gray-600 dark:text-gray-300">
+              Additional analytics coming soon…
+          </p>
+      </div>
+
+  </div>
+
+
     <!-- Recommended Sessions -->
     <div class="bg-white dark:bg-background-dark rounded-xl shadow-sm p-4 border border-gray-200 dark:border-gray-800">
     <h3 class="text-lg font-semibold mb-3 text-[#0d1b1b] dark:text-white">Recommended Sessions</h3>

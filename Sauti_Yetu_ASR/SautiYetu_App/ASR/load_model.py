@@ -1,21 +1,43 @@
 from transformers import WhisperProcessor, WhisperForConditionalGeneration
+from transformers import AutoProcessor, AutoModelForSpeechSeq2Seq
 import torchaudio
 import torch
+import nltk
 
 model_id = "sir-antonie/asr_model_v2"
+nltk.download("punkt_tab")
 
-processor = WhisperProcessor.from_pretrained(model_id)
-model = WhisperForConditionalGeneration.from_pretrained(model_id, device_map="auto")
+processor = None
+model = None
 
-print("✅ Model loaded successfully from Hugging Face!")
+
+
+
+
+def get_model():
+    global model, processor
+
+    if model is None:
+        print("🔥 Loading Whisper model... (one-time load)")
+        model_id = "openai/whisper-base"
+
+        processor = WhisperProcessor.from_pretrained(model_id)  
+        model = WhisperForConditionalGeneration.from_pretrained(model_id, device_map="auto")
+        print("✅ Model loaded successfully!")
+
+    return model, processor
+
+
 
 
 
 
 def transcribe_en_audio(audio_path, model_id):
     # Load model + processor
-    processor = WhisperProcessor.from_pretrained(model_id)
-    model = WhisperForConditionalGeneration.from_pretrained(model_id)
+    model, processor = get_model()
+
+    # processor = WhisperProcessor.from_pretrained(model_id)
+    # model = WhisperForConditionalGeneration.from_pretrained(model_id)
     
 
     # Load audio
