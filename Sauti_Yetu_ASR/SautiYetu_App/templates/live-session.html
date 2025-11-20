@@ -275,6 +275,7 @@
 
       
       <div x-show="tab === 'sad'">
+        <!-- Speech Activity Detection -->
           <h4 class="text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
               Speech Activity Detection (SAD)
           </h4>
@@ -282,14 +283,85 @@
           <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
               <div class="bg-primary h-2.5 rounded-full" style="width: 65%"></div>
           </div>
+          <br>
 
-          <h4 class="text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
-              Speech Activity Detection (SAD)
-          </h4>
-
-          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-              <div class="bg-primary h-2.5 rounded-full" style="width: 65%"></div>
+          <!-- 1. Emotion Recognition -->
+          <div class="mb-4">
+              <div class="flex justify-between text-sm mb-2">
+                  <span class="text-gray-700 dark:text-gray-300 font-medium">Emotion Recognition</span>
+                  <span class="text-gray-600 dark:text-gray-400 italic">Neutral</span>
+              </div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                  <div class="bg-primary h-2.5 rounded-full" style="width: 82%"></div>
+              </div>
           </div>
+
+          <!-- 2. Politeness -->
+          <div class="mb-4">
+              <div class="flex justify-between text-sm mb-1">
+                  <span class="text-gray-700 dark:text-gray-300 font-medium">Politeness</span>
+                  <span class="text-gray-600 dark:text-gray-400 italic">Empathy</span>
+              </div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                  <div class="bg-amber-500 h-2.5 rounded-full" style="width: 68%"></div>
+              </div>
+          </div>
+
+          <!-- 3. Conversation Mood -->
+          <div class="mb-4">
+              <div class="flex justify-between text-sm mb-1">
+                  <span class="text-gray-700 dark:text-gray-300 font-medium">Conversation Mood</span>
+                  <span class="text-gray-600 dark:text-gray-400 italic">Informative</span>
+              </div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                  <div class="bg-blue-500 h-2.5 rounded-full" style="width: 68%"></div>
+              </div>
+          </div>
+
+          <!-- 4. Communication Efficiency -->
+          <div class="mb-4">
+              <div class="flex justify-between text-sm mb-1">
+                  <span class="text-gray-700 dark:text-gray-300 font-medium">Communication Efficiency</span>
+                  <span class="text-gray-600 dark:text-gray-400 italic">—</span>
+              </div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                  <div class="bg-green-500 h-2.5 rounded-full" style="width: 72%"></div>
+              </div>
+          </div>
+
+          <!-- 5. Intent Recognition -->
+          <div class="mb-4">
+              <div class="flex justify-between text-sm mb-1">
+                  <span class="text-gray-700 dark:text-gray-300 font-medium">Intent Recognition</span>
+                  <span class="text-gray-600 dark:text-gray-400 italic">Statement</span>
+              </div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                  <div class="bg-red-500 h-2.5 rounded-full" style="width: 26%"></div>
+              </div>
+          </div>
+
+          <!-- 6. Articulation Rate -->
+          <div class="mb-4">
+              <div class="flex justify-between text-sm mb-1">
+                  <span class="text-gray-700 dark:text-gray-300 font-medium">Articulation Rate</span>
+                  <span class="text-gray-600 dark:text-gray-400 italic">2.40 words/sec</span>
+              </div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                  <div class="bg-purple-500 h-2.5 rounded-full" style="width: 40%"></div>
+              </div>
+          </div>
+
+          <!-- 7. Articulation Clarity -->
+          <div class="mb-6">
+              <div class="flex justify-between text-sm mb-1">
+                  <span class="text-gray-700 dark:text-gray-300 font-medium">Articulation Clarity</span>
+                  <span class="text-gray-600 dark:text-gray-400 italic">3.66 / 10</span>
+              </div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                  <div class="bg-gray-500 h-2.5 rounded-full" style="width: 36%"></div>
+              </div>
+          </div>
+
       </div>
 
       <!-- TAB CONTENT: OTHER -->
