@@ -1,3 +1,8 @@
+
+
+{% load static %}
+
+
 <!DOCTYPE html>
 
 <html class="light" lang="en"><head>
@@ -31,17 +36,19 @@
       }
     </script>
 
-    <script type="text/javascript">
-        window.onload = () => {
-        const api = new JitsiMeetExternalAPI("8x8.vc", {
-            roomName: "vpaas-magic-cookie-cbef68504d404e36be0adae23321c33a/SampleAppLikelyInterferencesRewardSideways",
-            parentNode: document.querySelector('#jaas-container'),
-                        // Make sure to include a JWT if you intend to record,
-                        // make outbound calls or use any other premium features!
-                        jwt: "eyJraWQiOiJ2cGFhcy1tYWdpYy1jb29raWUtY2JlZjY4NTA0ZDQwNGUzNmJlMGFkYWUyMzMyMWMzM2EvMTcxZDE4LVNBTVBMRV9BUFAiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJqaXRzaSIsImlzcyI6ImNoYXQiLCJpYXQiOjE3NjMzOTk0MDIsImV4cCI6MTc2MzQwNjYwMiwibmJmIjoxNzYzMzk5Mzk3LCJzdWIiOiJ2cGFhcy1tYWdpYy1jb29raWUtY2JlZjY4NTA0ZDQwNGUzNmJlMGFkYWUyMzMyMWMzM2EiLCJjb250ZXh0Ijp7ImZlYXR1cmVzIjp7ImxpdmVzdHJlYW1pbmciOmZhbHNlLCJmaWxlLXVwbG9hZCI6ZmFsc2UsIm91dGJvdW5kLWNhbGwiOmZhbHNlLCJzaXAtb3V0Ym91bmQtY2FsbCI6ZmFsc2UsInRyYW5zY3JpcHRpb24iOmZhbHNlLCJsaXN0LXZpc2l0b3JzIjpmYWxzZSwicmVjb3JkaW5nIjpmYWxzZSwiZmxpcCI6ZmFsc2V9LCJ1c2VyIjp7ImhpZGRlbi1mcm9tLXJlY29yZGVyIjpmYWxzZSwibW9kZXJhdG9yIjp0cnVlLCJuYW1lIjoiVGVzdCBVc2VyIiwiaWQiOiJnb29nbGUtb2F1dGgyfDExMDM5NDkzMjA1OTg2MzMwNDU2MyIsImF2YXRhciI6IiIsImVtYWlsIjoidGVzdC51c2VyQGNvbXBhbnkuY29tIn19LCJyb29tIjoiKiJ9.oTm3MmSUMVrKILB0B-zDtdX-0kYe8BIxWRP9heOxidNwFZS9LJAP26x682J1vDe-oYbyXJbI94r0SKfZZE4QT0Xu_odlJrfosNWfUjYiiKrYpfGJzkMac5IinW6EaB5SJFSiHbEA2w6Ex3RXKICyJl69LJasz-VW1oknO2uIWun-xoF1QcQEJsSTrMZqUI1K0Dgdxq9_cxBXDzht11mRBU-EccNWu2JaXDcmlsyefVJUMXMrgyRXQSdYGIzxOt0DVNm81D5IIIjPTtfDDFNYyvI68wBP7IzTNa15PSmI906Hw0NMb2sccg2OxkzkE9YTPAnw2WcdvuuJuhJqTd188g"
-        });
-        }
-    </script>
+    <script src='https://8x8.vc/vpaas-magic-cookie-cbef68504d404e36be0adae23321c33a/external_api.js' async></script>
+        <style>html, body, #jaas-container { height: 100%; }</style>
+        <script type="text/javascript">
+          window.onload = () => {
+            const api = new JitsiMeetExternalAPI("8x8.vc", {
+              roomName: "vpaas-magic-cookie-cbef68504d404e36be0adae23321c33a/SampleAppEssentialAvailabilitiesLiftAnxiously",
+              parentNode: document.querySelector('#jaas-container'),
+							// Make sure to include a JWT if you intend to record,
+							// make outbound calls or use any other premium features!
+							// jwt: "eyJraWQiOiJ2cGFhcy1tYWdpYy1jb29raWUtY2JlZjY4NTA0ZDQwNGUzNmJlMGFkYWUyMzMyMWMzM2EvMTcxZDE4LVNBTVBMRV9BUFAiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJqaXRzaSIsImlzcyI6ImNoYXQiLCJpYXQiOjE3NjM2Nzc3NDksImV4cCI6MTc2MzY4NDk0OSwibmJmIjoxNzYzNjc3NzQ0LCJzdWIiOiJ2cGFhcy1tYWdpYy1jb29raWUtY2JlZjY4NTA0ZDQwNGUzNmJlMGFkYWUyMzMyMWMzM2EiLCJjb250ZXh0Ijp7ImZlYXR1cmVzIjp7ImxpdmVzdHJlYW1pbmciOmZhbHNlLCJmaWxlLXVwbG9hZCI6ZmFsc2UsIm91dGJvdW5kLWNhbGwiOmZhbHNlLCJzaXAtb3V0Ym91bmQtY2FsbCI6ZmFsc2UsInRyYW5zY3JpcHRpb24iOmZhbHNlLCJsaXN0LXZpc2l0b3JzIjpmYWxzZSwicmVjb3JkaW5nIjpmYWxzZSwiZmxpcCI6ZmFsc2V9LCJ1c2VyIjp7ImhpZGRlbi1mcm9tLXJlY29yZGVyIjpmYWxzZSwibW9kZXJhdG9yIjp0cnVlLCJuYW1lIjoiVGVzdCBVc2VyIiwiaWQiOiJnb29nbGUtb2F1dGgyfDExMDM5NDkzMjA1OTg2MzMwNDU2MyIsImF2YXRhciI6IiIsImVtYWlsIjoidGVzdC51c2VyQGNvbXBhbnkuY29tIn19LCJyb29tIjoiKiJ9.oQSQPCOj5UKForlRNgw7hPx5H6dlOc2-ZRJqM9-0qriuxiqrgURFgdyLiLyRSMs2ELUfQqI_3WdBHQCfl5fUc7WnDLlEyEL57APWACAj3gUfrlkxdZ4gTVzazfg7ipNe0Rqsgw0q4IuMRokNjTAVh9zjZ9-7nTWZqPT1JyOvPAcrbKogXYykKWg3HX8kJKmMEPYWOIzcep10kf1o5aJoJkf45IRsuxZs-6xnUgGtPU8PEdzvWmM2HlQdkBknGSYL1p7XeU1_nFQo2rFebEtyoEmxI7rvLcDtupKAfiFFPi8cD3-XIp3QgFdmQg5r239KAQs8FO5DYIEWtRvpmzOJfQ"
+            });
+          }
+        </script>
     </head>
 
 
@@ -181,7 +188,7 @@
     </div>
     </div> -->
 
-    <div x-data="{ tab: 'phonemes' }" class="py-4 shadow-md " style="padding: 10px; border-radius: 10px; height: 500px;">
+    <div x-data="{ tab: 'phonemes' }" class="py-4 shadow-md overflow-y-auto overflow-x-hidden" style="padding: 10px; border-radius: 10px; height: 500px;  scroll-behavior: smooth;">
 
       <!-- TAB BUTTONS -->
       <div class="flex gap-4 border-b mb-4">
@@ -275,6 +282,14 @@
 
       
       <div x-show="tab === 'sad'">
+        <div class="p-2 bg-primary/20 rounded-full text-primary" style="border-radius: 5px;">
+          <p class="font-semibold text-[#0d1b1b] dark:text-white">Demographic </p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Gender: Male</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Est Age Group: 10-20</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Classified: Child</p>
+        </div>
+        <br>
+        <br>
         <!-- Speech Activity Detection -->
           <h4 class="text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
               Speech Activity Detection (SAD)
@@ -284,6 +299,7 @@
               <div class="bg-primary h-2.5 rounded-full" style="width: 65%"></div>
           </div>
           <br>
+          
 
           <!-- 1. Emotion Recognition -->
           <div class="mb-4">
@@ -303,7 +319,7 @@
                   <span class="text-gray-600 dark:text-gray-400 italic">Empathy</span>
               </div>
               <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                  <div class="bg-amber-500 h-2.5 rounded-full" style="width: 68%"></div>
+                  <div class="bg-primary h-2.5 rounded-full" style="width: 68%"></div>
               </div>
           </div>
 
@@ -314,7 +330,7 @@
                   <span class="text-gray-600 dark:text-gray-400 italic">Informative</span>
               </div>
               <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                  <div class="bg-blue-500 h-2.5 rounded-full" style="width: 68%"></div>
+                  <div class="bg-primary h-2.5 rounded-full" style="width: 68%"></div>
               </div>
           </div>
 
@@ -325,7 +341,7 @@
                   <span class="text-gray-600 dark:text-gray-400 italic">—</span>
               </div>
               <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                  <div class="bg-green-500 h-2.5 rounded-full" style="width: 72%"></div>
+                  <div class="bg-primary h-2.5 rounded-full" style="width: 72%"></div>
               </div>
           </div>
 
@@ -336,7 +352,7 @@
                   <span class="text-gray-600 dark:text-gray-400 italic">Statement</span>
               </div>
               <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                  <div class="bg-red-500 h-2.5 rounded-full" style="width: 26%"></div>
+                  <div class="bg-primary h-2.5 rounded-full" style="width: 26%"></div>
               </div>
           </div>
 
@@ -347,7 +363,7 @@
                   <span class="text-gray-600 dark:text-gray-400 italic">2.40 words/sec</span>
               </div>
               <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                  <div class="bg-purple-500 h-2.5 rounded-full" style="width: 40%"></div>
+                  <div class="bg-primary h-2.5 rounded-full" style="width: 40%"></div>
               </div>
           </div>
 
@@ -358,7 +374,7 @@
                   <span class="text-gray-600 dark:text-gray-400 italic">3.66 / 10</span>
               </div>
               <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                  <div class="bg-gray-500 h-2.5 rounded-full" style="width: 36%"></div>
+                  <div class="bg-primary h-2.5 rounded-full" style="width: 36%"></div>
               </div>
           </div>
 
@@ -366,12 +382,91 @@
 
       <!-- TAB CONTENT: OTHER -->
       <div x-show="tab === 'charts'">
-          <p class="text-sm text-gray-600 dark:text-gray-300">
-              Additional analytics coming soon…
-          </p>
+           <div>
+              <h4 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Spectrogram 
+              </h4>
+              <img src="{% static 'img/content (4).png' %}" alt="Spectrogram Analysis" class="w-full rounded-lg shadow">
+              <p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 p-2 bg-primary/20 rounded-full text-primary" style="border-radius: 5px; margin-top: 5px;">
+                  This visual 'heat map' of vocal frequencies shows us that the client's speech is dense with rich, warm colors. This indicates a strong, full vocal quality with consistent sound 
+                  production across various frequencies.
+              </p>
+          </div>
+          <hr>
+          <br>
+          <br>
+          <!-- Pitch analysis -->
+          <div>
+              <h4 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Pitch Contour 
+              </h4>
+              <img src="{% static 'img/content (2).png' %}" alt="Spectrogram Analysis" class="w-full rounded-lg shadow">
+              <p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 p-2 bg-primary/20 rounded-full text-primary" style="border-radius: 5px; margin-top: 5px;">
+                  The pitch contour analysis shows the melodic quality of their voice. I observe a wide range of pitch fluctuation, 
+                  which indicates the client is likely using vocal variety and intonation to express emotion, rather than speaking in a monotone.
+              </p>
+          </div>
+          <hr>
+          <br>
+          <br>
+          <!-- Speech Activity Detection -->
+           <div>
+              <h4 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Speech Activity Detection
+              </h4>
+              <img src="{% static 'img/content (5).png' %}" alt="Spectrogram Analysis" class="w-full rounded-lg shadow">
+              <p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 p-2 bg-primary/20 rounded-full text-primary" style="border-radius: 5px; margin-top: 5px;">
+                  From this analysis, I can tell exactly when your client was actively speaking versus pausing. We can see where the silence 
+                  happened and get a precise measure of how much airtime they took up during the session.
+              </p>
+          </div>
+          <hr>
+          <br>
+          <br>
+          <!-- SNR -->
+          <div>
+              <h4 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Speech to Noise Ratio
+              </h4>
+              <img src="{% static 'img/content (3).png' %}" alt="Spectrogram Analysis" class="w-full rounded-lg shadow">
+              <p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 p-2 bg-primary/20 rounded-full text-primary" style="border-radius: 5px; margin-top: 5px;">
+                  Regarding the speech-to-noise ratio, the client's voice energy consistently stays well above the background noise threshold. 
+                  This is a good sign; it means they are consistently easy to hear and understand without strain.
+              </p>
+          </div>
+          <hr>
+          <br>
+          <br>
+          <!-- Articulation Trend -->
+          <div>
+            <h4 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                Articulation Clarity Score
+            </h4>
+            <img src="{% static 'img/content (6).png' %}" alt="Spectrogram Analysis" class="w-full rounded-lg shadow">
+            <p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 p-2 bg-primary/20 rounded-full text-primary" style="border-radius: 5px; margin-top: 5px;">
+                Looking at the articulation clarity metrics, I notice a consistent 'brightness' to their sound (spectral centroid) and 
+                stable frequency patterns. This suggests the client is generally producing clear, sharp, and easy-to-understand speech.
+            </p>
+          </div>
+          <hr>
+          <br>
+          <br>
+          <!-- Discourse Coherence -->
+          <div>
+            <h4 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                Discourse Coherence
+            </h4>
+            <img src="{% static 'img/content (1).png' %}" alt="Spectrogram Analysis" class="w-full rounded-lg shadow">
+            <p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 p-2 bg-primary/20 rounded-full text-primary" style="border-radius: 5px; margin-top: 5px;">
+                Based on the discourse coherence chart, I see positive correlations between adjacent sentences. This suggests that, structurally speaking, 
+                the client is maintaining a logical and easy-to-follow flow of conversation when moving from one topic or idea to the next.
+            </p>
+          </div>
+          <br>
+          <br>
       </div>
 
-  </div>
+    </div>
 
 
     <!-- Recommended Sessions -->
