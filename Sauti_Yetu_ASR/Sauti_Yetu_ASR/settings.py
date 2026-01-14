@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'channels',
     'SautiYetu_App',
+    
 ]
 
 MIDDLEWARE = [
@@ -69,6 +71,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Sauti_Yetu_ASR.wsgi.application'
+ASGI_APPLICATION = 'Sauti_Yetu_ASR.asgi.application'
 
 
 # Database

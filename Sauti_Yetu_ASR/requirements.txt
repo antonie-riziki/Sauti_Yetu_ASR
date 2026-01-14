@@ -1,5 +1,6 @@
 ffmpeg-python 
 matplotlib 
+channels
 numpy 
 pandas 
 scipy 

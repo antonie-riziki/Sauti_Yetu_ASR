@@ -496,7 +496,58 @@
     </div>
     </div>
     </div>
+
     </main>
+    </div>
+
+    <!-- Audio Worklet for PCM Encoding -->
+    <script>
+        let audioContext;
+        let audioWorkletNode;
+        let socket;
+
+        async function startAudioStreaming() {
+            // WebSocket to Django
+            socket = new WebSocket("ws://" + window.location.host + "/ws/live-audio/");
+
+            socket.onopen = () => console.log("Audio WebSocket connected");
+            socket.onerror = err => console.error("WS error", err);
+
+            // Get mic access (same mic Jitsi uses)
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+            audioContext = new AudioContext({ sampleRate: 16000 });
+            await audioContext.audioWorklet.addModule("/static/js/pcm-processor.js");
+
+            const source = audioContext.createMediaStreamSource(stream);
+            audioWorkletNode = new AudioWorkletNode(audioContext, "pcm-processor");
+
+            source.connect(audioWorkletNode);
+
+            audioWorkletNode.port.onmessage = (event) => {
+                if (socket.readyState === WebSocket.OPEN) {
+                    socket.send(event.data);
+                }
+            };
+        }
+
+        window.addEventListener("load", () => {
+            startAudioStreaming();
+        });
+    </script>
+
+
+    <script>
+        socket.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            console.log("Live Analysis:", data);
+
+            // Later:
+            // updatePhonemePanel(data)
+        };
+    </script>
+
+
 
     </body>
 </html>

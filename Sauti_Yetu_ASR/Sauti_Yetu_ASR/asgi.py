@@ -7,10 +7,24 @@ For more information on this file, see
 https://docs.djangoproject.com/en/5.2/howto/deployment/asgi/
 """
 
-import os
+# import os
 
-from django.core.asgi import get_asgi_application
+# from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Sauti_Yetu_ASR.settings')
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Sauti_Yetu_ASR.settings')
 
-application = get_asgi_application()
+# application = get_asgi_application()
+
+
+
+
+from channels.routing import ProtocolTypeRouter, URLRouter
+from channels.auth import AuthMiddlewareStack
+import SautiYetu_App.routing
+# import app.routing
+
+application = ProtocolTypeRouter({
+    "websocket": AuthMiddlewareStack(
+        URLRouter(SautiYetu_App.routing.websocket_urlpatterns)
+    ),
+})
